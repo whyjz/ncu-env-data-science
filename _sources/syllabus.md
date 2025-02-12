@@ -1,12 +1,11 @@
 # Syllabus 
 
-**RS5046/GP5024: Environmental data science (環境資料科學)** Spring 2024
+**RS5046/GP5024: Environmental data science (環境資料科學)** Spring 2025
 
-Whyjay Zheng (鄭懷傑), whyjz@csrsr.ncu.edu.tw, Tuesday 10:00 am -- 12:30 pm at TR-A206 (教研大樓)
+Whyjay Zheng (鄭懷傑), whyjz@csrsr.ncu.edu.tw, Tuesday 10:00 am -- 12:30 pm at S-114 (科學一館/地球科學系系館; Department of Earth Sciences)
 
-Office hours by appointment are in my office (R3-230).
 
-## Course goals
+## Course Goals
 
 - Familiar yourself with the language data scientists use to communicate. 
 - Understand some of the most popular statistical models in environmental science.
@@ -17,13 +16,13 @@ Office hours by appointment are in my office (R3-230).
 
 Before taking this course, you should already have the necessary knowledge about statistics and computer programming. Check out [this web page](https://scikit-learn.org/stable/tutorial/statistical_inference/supervised_learning.html) and see if you can understand most of the ideas and steps presented here within a reasonable reading time. 
 
-If more than two questions in Quiz #1 are challenging, I suggest you take introductory statistics/programming first.
+If more than two questions in the Pre-course Quiz are challenging, I suggest you take introductory statistics/programming first.
 
 ## Textbook
 
 Hsieh, W. (2023). Introduction to Environmental Data Science. Cambridge: Cambridge University Press. doi:[10.1017/9781107588493](https://doi.org/10.1017/9781107588493) (PDF available through the [NCU library](https://ncu.primo.exlibrisgroup.com/discovery/search?selection=any,contains,&query=any,contains,Introduction%20to%20Environmental%20Data%20Science&tab=nculib&search_scope=MyInstitution&vid=886UST_NCU:886UST_NCU&lang=zh-tw&offset=0))
 
-## Course calendar 
+## Course Calendar 
 
 Readings and assignments are due **before the class starts**.
 
@@ -34,7 +33,81 @@ Readings and assignments are due **before the class starts**.
   - Topics
   - Readings due
   - Assignments due
-* - 1 (Feb 20)
+* - 1 (2/18)
+  - *NO CLASS*
+  - 
+  - 
+* - 2 (2/25)
+  - Syllabus and warm-up | Pre-course Quiz
+  - 
+  -
+* - 3 (3/4)
+  - Statistical Tests
+  - TBD
+  -
+* - 4 (3/11)
+  - Linear Models and Regularization (I)
+  - TBD
+  - Problem set #1
+* - 5 (3/18)
+  - Linear Models and Regularization (II)
+  - TBD
+  - 
+* - 6 (3/25)
+  - *NO CLASS*
+  - 
+  - Problem set #2
+* - 7 (4/1)
+  - Neural Networks (I)
+  - TBD
+  - 
+* - 8 (4/8)
+  - Neural Networks (II)
+  - TBD
+  - Term project proposal
+* - 9 (4/15)
+  - Kernel Methods (I)
+  - TBD
+  - Problem set #3
+* - 10 (4/22)
+  - Kernel Methods (II)
+  - TBD
+  - 
+* - 11 (4/29)
+  - *NO CLASS*
+  - 
+  - Problem set #4
+* - 12 (5/6)
+  - Neural Networks (III)
+  - TBD
+  - 
+* - 13 (5/13)
+  - Ensemble Methods (I)
+  - TBD
+  - 
+* - 14 (5/20)
+  - Ensemble Methods (II)
+  - TBD
+  - Problem set #5
+* - 15 (5/27)
+  - Outlook: Physics-informed learning models
+  - TBD
+  - 
+* - 16 (6/3)
+  - Term project presentation | Post-course Quiz
+  -
+  - 
+* - 17 (6/10)
+  - *NO CLASS*
+  - 
+  - Term project paper
+* - 18 (6/17)
+  - *NO CLASS*
+  - 
+  - 
+```
+
+<!-- * - 1 (Feb 20)
   - Syllabus and warm-up
   - 
   - 
@@ -91,7 +164,7 @@ Readings and assignments are due **before the class starts**.
   - 14.3, 16.8, 16.9
   -
 * - 15 (May 28)
-  - Wrap-up
+  - Wrap-up | Outlook: Physics-informed learning models
   - 17.2
   - Problem set #5
 * - 16 (Jun 4)
@@ -105,50 +178,61 @@ Readings and assignments are due **before the class starts**.
 * - 18 (Jun 18)
   - NO CLASS
   - 
-  - 
-```
+  -  -->
+
 This tentative schedule is subject to change depending on our progress and participants' needs.
 
 ## Course components
 
 ### Readings
-The assigned readings are sections from Hsieh's book (see course calendar for the section numbers). We will have you discuss your reflection on the content during the class discussion (and maybe with some quizzes).
+The assigned readings are from Hsieh's book (see Course Calendar for the section numbers). We will have you discuss your reflection and understanding of the content during the class.
 
 ### During the class
-You will see three segments during the class time:
+There are three segments during the class time:
 
-1. Group discussion (10:00--10:30): Please find solutions or perspectives to my questions on a worksheet as a group. These questions are typically related to the assigned readings or the homework.
-2. Lecture (10:30--11:50): I (Whyjay) will review today's topics.
-3. Hands-on session or the second group discussion (11:50--): We will demo some workflows and data processing skills (for your homework and term project) and have you work on that with the help of classmates and me.
-
-Non-graded quizzes (if any) are typically distributed at the beginning of the lecture. We will let you work on that for 5--10 minutes.
+1. Group discussion (10:00--10:30): You will have to find solutions or perspectives to my questions on a worksheet as a group. These questions are related to the assigned readings.
+2. Lecture (10:30--12:00; with a break of 5--10 minutes in the middle): I (Whyjay) will review today's topics.
+3. Hands-on session or the second group discussion (12:00--12:30): We will demo some workflows and data processing skills necessary for your homework and term project. You can also complete the worksheet from the first segment if there is still time.
 
 ### Homework assignments
-There will be five problem sets throughout the semester. You must work on them individually (i.e., no collaboration and plagiarism). Assignments are due before class starts (see course calendar for due dates). Electronic submission through ee-class is recommended, but other forms are also acceptable. Please make sure I get your submission before the deadline to avoid a potential late penalty if you don't use ee-class.
+There will be five problem sets throughout the semester. You must work on them individually (i.e., no collaboration and plagiarism). Assignments are **due before class starts** (see course calendar for due dates). Electronic submission through ee-class is recommended, but other forms are also acceptable. Please make sure I get your submission before the deadline to avoid a potential late penalty if you don't use ee-class.
 
 ### Term project
-Our term project is group-based. Every group consists of no more than four people working on the same project goals they propose. The team leader will have several tasks, such as brainstorming the proposal topics, organizing collaboration, etc.
+The group-based term project is the final checkpoint for what you learn from this course. Each project team consists of no more than four people. There are three project milestones throughout the semester: 
 
-Term project consists of three milestones: (1) Half to one-page long project proposal as a group, due April 9 before the class starts. (2) Oral presentations as a group on June 4. (3) An online webpage showcasing your project work, published no later than June 11.
+1. A project proposal. 
+2. An in-class oral presentation.
+3. An online webpage showcasing the final work of the project
 
-#### Oral presentations: June 4th
+All due dates have been listed in the course calendar. For the written submission, the due time is always 10:00 am (i.e., **before the class starts**).  
 
-A seminar-style presentation with visual aids (slides, media, whiteboard, etc.). Your group talk should be in English and be within 20-30 minutes, followed by a Q&A session. Each group member should speak during the talk. 
+#### Project proposal
 
-#### Online webpage (due June 11th)
+The project proposal should be half to one-page long, summarizing your intended goals in the end of the semester. These goals should be related to multiple learning models we cover in the course.
 
-Your final group write-up must follow the structure of an academic essay (Introduction, Methods, Results, Discussion, References, etc.) and have an abstract of less than 100 words. The work should be visible online before 10 am on June 11 and remain unchanged until June 18 for grading. I have made a [template](https://github.com/whyjz/ncu-env-data-science-template) for you to automatically publish your Jupyer notebook (or plain markdown files) using GitHub Pages. You can also find the deployed [HTML here](https://whyjz.github.io/ncu-env-data-science-template/project.html). 
+#### Oral presentation
 
-After June 18, you can decide whether to keep the report online or not. 
+A seminar-style presentation with visual aids (slides, media, whiteboard, etc.), in English and within 20--30 minutes, followed by a Q&A session. Each group member should speak up during the talk. 
+
+#### Online webpage
+
+Your final group write-up must follow the structure of an academic essay (Introduction, Methods, Results, Discussion, References, etc.) and have an abstract of less than 100 words. The work should be visible online before the due date listed on the calendar (before the class starts) and remain unchanged for a week for grading. After one week, you can decide whether to keep the webpage online or not.
+
+There will be a template for you to develop your own writing.
+
+<!-- I have made a [template](https://github.com/whyjz/ncu-env-data-science-template) for you to automatically publish your Jupyer notebook (or plain markdown files) using GitHub Pages. You can also find the deployed [HTML here](https://whyjz.github.io/ncu-env-data-science-template/project.html).  -->
 
 ## Grading
 I will evaluate your submissions and post your grades using Ee-class. The grade breakdown is as follows:
 
-- Readings and class discussion (20％): Each group worksheet accounts for 2% of the grade. I grade it using a simple rubric system: Good (2%), Fair (1%), and Absent (0%). All group members receive the same grade. This semester, we will have twelve worksheets, and the two lowest-graded worksheets will be dropped for final grade calculation.
+- Readings and class discussion (22％): Each group worksheet accounts for 2% of the grade. I grade it using a simple rubric system: Good (2%), Fair (1%), and Absent (0%). All group members receive the same grade. We except eleven worksheets during this semester. 
 
 - Assignments (50％): Each problem set accounts for 12.5% of the grade. The lowest-graded one will be dropped for final grade calculation. Most of the problems are from Hsieh's book, in which the suggested solution is provided. But remember: **The doing is often more important than the outcome.** The grades of your assignments are heavily based on the reproducibility of your workflow (8.75%) rather than the correctness of your results (3.75%). Please include scripts, screenshots, or other elements that can make other people reproduce your work. 
 
-- Term project (30％): Project proposal accounts for 5%. I will typically give you full credits for this unless it does not fulfill format requirements. Oral presentation accounts for 15%, and the final webpage accounts for 10%. These are graded based on the quality/completeness of the work, clarity of the presentation, and the ease of other people's reuse of your workflow or results. All team members receive the same base grade above, plus individual grade adjustments based on a confidential poll from the teammates. 
+- Term project (30％): Project proposal accounts for 5%. I will typically give you full credits for this unless it does not fulfill format requirements. Oral presentation accounts for 15%, and the final webpage accounts for 10%. These are graded based on the quality/completeness of the work, clarity of the presentation, and the ease of other people's reuse of your workflow or results. All team members receive the same base grade above, plus individual grade adjustments based on a confidential poll from the teammates.
+
+The sum of these grading items is 102%; however, you will receive 100% if your total is over 100%. 
+ 
 
 (late-work-policy)=
 ### Late work policy
@@ -169,22 +253,20 @@ I will evaluate your submissions and post your grades using Ee-class. The grade 
 
 ### Attribution of work
 
-- Please be careful about using copyrighted material in any assignments, and make sure you have permission/license with proper attribution whenever you use it.
+- Please be careful about using copyrighted material in any assignments, and **make sure you have permission/license with proper attribution** whenever you use it.
 
 - Again, do not work with other students on the homework assignments. They must be your sole work.
 
 ### Study time
-Since this is a 3-credit course, I expect you to have ~6 hours of study time every week outside of the class to get an adequate grade. If you spend much less or much more than that on readings, assignments, and the project, Please let me know.
+Since this is a 3-credit course, I expect you to have ~6 hours of study time every week in addition to the class time to get an adequate grade. If you spend much less or much more than that on readings, assignments, and the project, please let me know.
 
 ### AI policy
 Generative AI is allowed and encouraged (HEY... this is the power of data science!!). Use it with discretion, though -- generative AI is good at popular tasks (such as giving a code for visualizing a typical data structure) but not so good at giving ideas and perspectives. Their answers are usually very dull (if not failing a sanity check) due to the nature of the training process.
 
 ### Working languages
-We use English as the primary language to communicate during the class and the oral presentation. Some exceptions are:
+We use English as the primary language to communicate during the class and the oral presentation. There is an exception, though: you can use a different language in group discussion if everyone agrees. 
 
-- You can use a different language in group discussion if everyone agrees. 
-
-- Students taking RS5046 must use English for writing individual assignments, and students taking GP5024 can choose between English and 中文.
+All writing assignments and reports must be prepared in English.
 
 You are welcome to complete assignments using any programming language. I am familiar with Python and Matlab and can comment more if you use either. We will use Python with the Jupyter ecosystem (including Colab) for the class demos.
 
@@ -192,7 +274,7 @@ You are welcome to complete assignments using any programming language. I am fam
 
 Auditing is welcome. If you plan to audit the course, please note:
 
-- You will not be able to submit assignments and join any term project teams. 
+- You cannot submit assignments and join any term project teams. 
 - You can join any group during the in-class discussion time as long as all the group members agree.
 
 <!-- Other topics in data science (such as principal component and clustering analysis) will be covered through assigned readings, which we rely on during the class discussion. -->

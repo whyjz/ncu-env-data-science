@@ -2,7 +2,25 @@
 
 ## Problem set #1
 
-Complete Exercises 4.2, 4.3, 4.5, and 4.6 in Hsieh's book.
+TBD.
+
+## Problem set #2
+
+TBD.
+
+## Problem set #3
+
+TBD.
+
+## Problem set #4
+
+TBD.
+
+## Problem set #5
+
+TBD.
+
+<!-- Complete Exercises 4.2, 4.3, 4.5, and 4.6 in Hsieh's book.
 
 ## Problem set #2
 
@@ -24,4 +42,4 @@ Complete the following exercises in Hsieh's book with the specified requirements
 
 1. Exercise 14.2, including (c)
 2. Exercise 12.5, but develop two prediction models instead of one. One of the models must be a random forest or a boosting model.
-3. Exercise 14.4, including (b)
+3. Exercise 14.4, including (b) -->
