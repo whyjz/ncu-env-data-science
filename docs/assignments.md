@@ -2,7 +2,11 @@
 
 ## Problem set #1
 
-TBD.
+1. Complete Exercises 4.1 in Hsieh's book.
+2. Complete Exercises 4.5 in Hsieh's book. (Source data: `SWE_Nino_Nina.csv`)
+3. Complete Exercises 4.6 in Hsieh's book. (Source data: `nino12_long_anom.csv` & `nino34_long_anom.csv`)
+4. For the SWE data in `SWE_Nino_Nina.csv`, calculate the 95% CI of their median value using bootstrapping. Be sure to avoid the percentile method.
+5. Reproduce the figure for Q3 in the Pre-course Quiz. (Figure Link) *Figure credit: Nicolas P. Rougier (2021)*.
 
 ## Problem set #2
 
