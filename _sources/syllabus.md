@@ -43,7 +43,7 @@ Readings and assignments are due **before the class starts**.
   -
 * - 3 (3/4)
   - Statistical Tests
-  - TBD
+  - 4.1--4.5, 4.8
   -
 * - 4 (3/11)
   - Linear Models and Regularization (I)
@@ -195,7 +195,7 @@ There are three segments during the class time:
 3. Hands-on session or the second group discussion (12:00--12:30): We will demo some workflows and data processing skills necessary for your homework and term project. You can also complete the worksheet from the first segment if there is still time.
 
 ### Homework assignments
-There will be five problem sets throughout the semester. You must work on them individually (i.e., no collaboration and plagiarism). Assignments are **due before class starts** (see course calendar for due dates). Electronic submission through ee-class is recommended, but other forms are also acceptable. Please make sure I get your submission before the deadline to avoid a potential late penalty if you don't use ee-class.
+There will be five problem sets throughout the semester. Each consists of 3--5 questions, most of which (as well as the source data sets) come from Hsieh's textbook. You must work on them individually (i.e., no collaboration and plagiarism). Assignments are **due before class starts**; see course calendar for due dates. Electronic submission through ee-class is recommended, but other forms are also acceptable. Please make sure I get your submission before the deadline to avoid a potential late penalty if you don't use ee-class.
 
 ### Term project
 The group-based term project is the final checkpoint for what you learn from this course. Each project team consists of no more than four people. There are three project milestones throughout the semester: 
