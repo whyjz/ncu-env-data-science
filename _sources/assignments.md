@@ -6,7 +6,7 @@
 2. Complete Exercises 4.5 in Hsieh's book. (Source data: `SWE_Nino_Nina.csv`)
 3. Complete Exercises 4.6 in Hsieh's book. (Source data: `nino12_long_anom.csv` & `nino34_long_anom.csv`)
 4. For the SWE data in `SWE_Nino_Nina.csv`, calculate the 95% CI of their median value using bootstrapping. Be sure to avoid the percentile method.
-5. Reproduce the figure for Q3 in the Pre-course Quiz. (Figure Link) *Figure credit: Nicolas P. Rougier (2021)*.
+5. Reproduce the figure for Q3 in the Pre-course Quiz. ([Figure Link](https://drive.google.com/file/d/15WejYTcSHDGM3VNoX32WaD5r8l-BNNF-/view?usp=sharing)) *Figure credit: Nicolas P. Rougier (2021)*.
 
 ## Problem set #2
 
