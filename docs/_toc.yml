@@ -9,7 +9,7 @@ parts:
   - caption: Outlines
     chapters:
     - file: outlines/week1
-    # - file: outlines/week2-3
+    - file: outlines/week2
     # - file: outlines/week4-5
     # - file: outlines/week6-8
     # - file: outlines/week10-11

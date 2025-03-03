@@ -47,11 +47,11 @@ Readings and assignments are due **before the class starts**.
   -
 * - 4 (3/11)
   - Linear Models and Regularization (I)
-  - TBD
+  - 2.11, 5.1, 5.2, 5.5
   - Problem set #1
 * - 5 (3/18)
   - Linear Models and Regularization (II)
-  - TBD
+  - 2.12, 2.13, 5.6--5.10
   - 
 * - 6 (3/25)
   - *NO CLASS*

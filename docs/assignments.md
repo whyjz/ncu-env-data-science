@@ -10,7 +10,10 @@
 
 ## Problem set #2
 
-TBD.
+1. Complete Exercises 5.7 in Hsieh's book. (Source data: `Milwaukee_wind_direction_ozone.csv`)
+2. Visualize `SWE_tele.csv` and make a few arguments that the generated figures can visually support.
+3. Complete Exercises 5.8 in Hsieh's book. (Source data: `SWE_tele.csv`)
+4. Complete Exercises 5.9 in Hsieh's book. (Source data: `SWE_tele.csv`)
 
 ## Problem set #3
 
