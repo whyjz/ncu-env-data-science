@@ -10,17 +10,15 @@
 
 What does the term "data science" mean to you?
 
-So we have three terms here:
+So we have two terms here:
 - Statistics
 - Machine learning (ML)
-- Data science
+<!-- - Data science -->
 How are they different from each other? For example, what is the difference between a "statistical model" and a "machine learning model?" Or maybe they are the same thing? Just fancy words to be created to confuse people?
 
-What is "learning" as in machine learning?
+<!-- What is "learning" as in machine learning? -->
 
 What is the difference between supervised and unsupervised learning?
-
-Challenge in the Environmental data science: **Curse of Dimensionality**
 
 Checking in your answers for Q4 in the Pre-course Quiz.
 
@@ -40,8 +38,8 @@ Random variable: A **value** that follows a probability distribution. Are the fo
 - The number of apples in a basket
 - Your height
 - The height of a person sitting here who I randomly pick up
-- Today’s temperature
-- The number I get by rolling a die
+<!-- - Today’s temperature -->
+<!-- - The number I get by rolling a die -->
 
 What is a probability density function (PDF)? How is it different from a probability distribution?
 
@@ -50,12 +48,12 @@ Now let's revisit expectation, variance, and their mathematical expressions (con
 ### More about probability distributions
 
 - Gaussian: many distributions converge to this thanks to the central limit theory
-  - How does this related to Q2 in the Pre-course Quiz?
+  - How does this relate to Q2 in the Pre-course Quiz?
 - Poisson distribution
 - Student t-distribution: Bounded to the mean
 - Chi-squared ($\chi^2$) distribution: Bounded to the square of the Gaussians
 
 ## Group discussion & Demos
 
-2. Discuss how you would reproduce the figure for Q3 in the Pre-course Quiz.
-3. Get the data necessary for doing Exercise 4.5 in Hsieh's book.
+1. Discuss how you would reproduce the figure for Q3 in the Pre-course Quiz.
+2. Get the data necessary for doing Exercise 4.5 in Hsieh's book.
