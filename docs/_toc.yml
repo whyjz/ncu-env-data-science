@@ -10,7 +10,7 @@ parts:
     chapters:
     - file: outlines/week1
     - file: outlines/week2
-    # - file: outlines/week4-5
+    - file: outlines/week3-4
     # - file: outlines/week6-8
     # - file: outlines/week10-11
     # - file: outlines/week13-14

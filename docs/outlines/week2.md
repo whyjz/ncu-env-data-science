@@ -15,7 +15,7 @@ When to use hypothesis testing?
 4. Find the null distribution for the test statistic; calculate the $p$-value
 5. Reject or not reject $H_0$ by comparing $p$ with $\alpha$
 
-### Case study using one-sample t-test
+### Case study using a one-sample t-test
 
 Background conditions:
 - We already know this species' population mean ($\mu_0$) in the large lake.
