@@ -1,18 +1,40 @@
-# Regression Models: Why is regularization so important?
+# Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?
 
-**2024.03.12, 2024.03.19**
+**2025.03.11, 2025.03.18**
+
+<!-- **2024.03.12, 2024.03.19** -->
 
 ## Lecture outline
 
-### Basics
+### Common components of all regression models
 
-Review of the simple linear regression:
-- Model description and associated assumption
-- Advantage of the "least square"
+1. **Architecture**: The connection between input and output variables
+2. **Loss function**: The target quantity to be optimized. Aka *cost function* or *objective function*
+3. **Solver**: The method to find a solution
+
+### Simple linear regression (SLR)
+
+**Architecture**: $y_i = \hat{y}_i + \epsilon_i = a_0 + a_1 x_i + \epsilon_i$
+
+Assumptions (Are these necessary??)
+- Only $\epsilon_i$ is a random variable, $\sim N(0, \sigma_i^2)$
+- All $\epsilon_i$ are independent and identically distributed (*i.i.d.*); $\text{Cov}(\epsilon_i, \epsilon_j) = 0$ when $i \neq j$.
+- $\sigma_i^2$ is the same for all $i$; $\sigma_i^2 = \sigma^2$
+
+**Loss function**: Ordinary least square (OLS); $ J = SSE = \sum_{i=1}^{N} \epsilon_i^2 $
+- What are the advantages of using this loss function?
+
+**Solver**: Analytic
 - Normal equations
 
-The sum of squares: how much variability can be explained/modeled by a regression model?
+#### More about SLR
+
+Gauss--Markov Theorem and **BLUE** (best linear unbiased estimator)
+
+The sum of squares: How much variability can be explained/modeled by a regression model?
 - $SST = SSE + SSR$
+
+What is the difference between $R^2$ and $r$?
 
 Confidence interval vs. Prediction interval
 
@@ -23,16 +45,19 @@ When there is a serial correlation...
 
 What does "linear" mean in a linear regression model?
 
-Two equivalent expressions that are commonly seen in the environmental science studies: 
-- $\textbf{y} = \textbf{X}\textbf{a} + \boldsymbol{\epsilon}$    (We'll use this at the class)
+#### Components
+
+**Architecture**: $\textbf{y} = \textbf{X}\textbf{a} + \boldsymbol{\epsilon}$  (We'll use this at the class)
+Other equivalent expression is also commonly seen in the environmental science studies: 
 - $\textbf{d} = \textbf{G}\textbf{m}$    (Many geophysicists use this)
 
-Least-squares solution:
-- $\hat{\textbf{a}}=(\textbf{X}^\text{T}\textbf{X})^{-1}\textbf{X}^\text{T}\textbf{y}$
+**Loss function**: OLS. $ J = SSE = \boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon}$
 
-Gauss--Markov Theorem and BLUE
+**Solver**: Analytic.
+- What are the normal equations?
+- Solution: $\hat{\textbf{a}}=(\textbf{X}^\text{T}\textbf{X})^{-1}\textbf{X}^\text{T}\textbf{y}$
 
-### Advanced topics for MLR
+#### More about MLR
 
 Circular and categorical Data: transform them so that we can use a linear model
 
@@ -86,7 +111,12 @@ Exploring more ways to redesign the loss function!
 
 Data covariance matrix and weighted least squares
 
-## Group discussion & demo topics
+## Final thoughts
 
-1. Overview of the term project output: an example https://ucb-stat-159-s23.github.io/project-Group28/README.html 
-2. Another example is this class webpage.
+## Group discussion & Demos
+
+1. Introduction to Jupyter Notebook / JupyterLab
+2. Load an Exercise data set using Jupyter Notebook (hosted by [Google Colaboratory](https://colab.google/), [Callysto Hub](https://www.callysto.ca/), or your local machine)
+
+<!-- 1. Overview of the term project output: an example https://ucb-stat-159-s23.github.io/project-Group28/README.html 
+2. Another example is this class webpage. -->
