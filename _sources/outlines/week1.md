@@ -41,17 +41,20 @@ Random variable: A **value** that follows a probability distribution. Are the fo
 <!-- - Today’s temperature -->
 <!-- - The number I get by rolling a die -->
 
-What is a probability density function (PDF)? How is it different from a probability distribution?
+<!-- What is a probability density function (PDF)? How is it different from a probability distribution? -->
 
-Now let's revisit expectation, variance, and their mathematical expressions (cont. Q1 in Pre-course Quiz): Derive the expectation and the variance of the Bernoulli distribution $Ber(x|p) = p^x(1-p)^{1-x}$.
+Now let's revisit expectation, variance, and their mathematical expressions (cont. Q1 in Pre-course Quiz): 
+
+<!-- Derive the expectation and the variance of the Bernoulli distribution $Ber(x|p) = p^x(1-p)^{1-x}$. -->
 
 ### More about probability distributions
 
 - Gaussian: many distributions converge to this thanks to the central limit theory
   - How does this relate to Q2 in the Pre-course Quiz?
-- Poisson distribution
+<!-- - Poisson distribution -->
 - Student t-distribution: Bounded to the mean
-- Chi-squared ($\chi^2$) distribution: Bounded to the square of the Gaussians
+<!-- - Chi-squared ($\chi^2$) distribution: Bounded to the square of the Gaussians -->
+- Beta and Gamma distributions: different supports for different kinds of environment variables
 
 ## Group discussion & Demos
 

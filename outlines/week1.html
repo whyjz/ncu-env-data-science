@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'outlines/week1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -182,6 +180,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Warming-up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week2.html">Statistical Tests: How do they relate to machine learning?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3-4.html">Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?</a></li>
 </ul>
 
     </div>
@@ -390,8 +389,9 @@ document.write(`
 </ul>
 <!-- - Today’s temperature -->
 <!-- - The number I get by rolling a die -->
-<p>What is a probability density function (PDF)? How is it different from a probability distribution?</p>
-<p>Now let’s revisit expectation, variance, and their mathematical expressions (cont. Q1 in Pre-course Quiz): Derive the expectation and the variance of the Bernoulli distribution <span class="math notranslate nohighlight">\(Ber(x|p) = p^x(1-p)^{1-x}\)</span>.</p>
+<!-- What is a probability density function (PDF)? How is it different from a probability distribution? -->
+<p>Now let’s revisit expectation, variance, and their mathematical expressions (cont. Q1 in Pre-course Quiz):</p>
+<!-- Derive the expectation and the variance of the Bernoulli distribution $Ber(x|p) = p^x(1-p)^{1-x}$. -->
 </section>
 <section id="more-about-probability-distributions">
 <h3>More about probability distributions<a class="headerlink" href="#more-about-probability-distributions" title="Link to this heading">#</a></h3>
@@ -401,9 +401,14 @@ document.write(`
 <li><p>How does this relate to Q2 in the Pre-course Quiz?</p></li>
 </ul>
 </li>
-<li><p>Poisson distribution</p></li>
+</ul>
+<!-- - Poisson distribution -->
+<ul class="simple">
 <li><p>Student t-distribution: Bounded to the mean</p></li>
-<li><p>Chi-squared (<span class="math notranslate nohighlight">\(\chi^2\)</span>) distribution: Bounded to the square of the Gaussians</p></li>
+</ul>
+<!-- - Chi-squared ($\chi^2$) distribution: Bounded to the square of the Gaussians -->
+<ul class="simple">
+<li><p>Beta and Gamma distributions: different supports for different kinds of environment variables</p></li>
 </ul>
 </section>
 </section>

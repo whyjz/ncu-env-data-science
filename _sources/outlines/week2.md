@@ -15,7 +15,7 @@ When to use hypothesis testing?
 4. Find the null distribution for the test statistic; calculate the $p$-value
 5. Reject or not reject $H_0$ by comparing $p$ with $\alpha$
 
-### Case study using one-sample t-test
+### Case study using a one-sample t-test
 
 Background conditions:
 - We already know this species' population mean ($\mu_0$) in the large lake.
@@ -51,9 +51,13 @@ How do we design $\alpha$ and $N$ when you prefer one type of error over another
 **Two-sample t-test**: Assumption towards the samples matters
 - Are both variances the same?
 - Are two samples potentially dependent?
-- Do the data need some arra
+- Do the data need some arrangements?
 
 T-tests can also test the correlation with the null hypothesis $\rho = 0$.
+
+### p-hacking
+
+What if we repeat the test above 100 times, each with a different sample, and report the test result with the minimum $p$? 
 
 ### Non-parametric tests
 
@@ -104,8 +108,6 @@ Histogram and statistical distributions -->
 
 <!-- Suppose Yushan measures 3952.43 m by a satellite altimeter. And the maximum measurement error of this altimeter is 0.2 m according to its documentation. What is the uncertainty of Yushan’s height? What is the 95% confidence interval of Yushan’s height? -->
 
-## Group discussion & demo topics
+## Group discussion & Demos
 
-1. Introduction to Jupyter Notebook / JupyterLab
-2. Load an Exercise data set using Jupyter Notebook (hosted by [Google Colaboratory](https://colab.google/), [Callysto Hub](https://www.callysto.ca/), or your local machine)
-3. Do you have any questions about the first problem set?
+1. Do you have any questions about the first problem set?
