@@ -456,31 +456,61 @@ Other equivalent expression is also commonly seen in the environmental science s
 <li><p>To keep all the predictors in the regression model</p></li>
 <li><p>To improve the solution by making the input towards full rank or better conditions.</p></li>
 </ul>
+<p>Example: The one-hot encoding case from the worksheet</p>
 <section id="ridge-regression">
 <h4>Ridge regression<a class="headerlink" href="#ridge-regression" title="Link to this heading">#</a></h4>
 <p>a.k.a. L-2 regularization or Tikhonov regression</p>
-<p>Two expressions of the ridge regression: Implicit (Lagrangian, check out Appendix B of the textbook) and Explicit</p>
-<p>ridge regression solution:</p>
+<p><strong>Architecture</strong>: same as MLR</p>
+<p><strong>Loss function</strong>: Regularized OLS. <span class="math notranslate nohighlight">\( J = \boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon} + \lambda\textbf{a}^\text{T}\textbf{a}\)</span></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\hat{\textbf{a}}=(\textbf{X}^\text{T}\textbf{X}+\lambda \textbf{I})^{-1}\textbf{X}^\text{T}\textbf{y}\)</span></p></li>
+<li><p>This is the explicit expression using the Lagrange multiplier <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+<li><p>It is equivalent to a standard OLS (<span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon}\)</span>) under a constraint <span class="math notranslate nohighlight">\(\textbf{a}^\text{T}\textbf{a} \leq b\)</span>. See Appendix B of the textbook for more details.</p></li>
 </ul>
-<p>How to select <span class="math notranslate nohighlight">\(\lambda\)</span>?</p>
+<p><strong>Solver</strong>: Analytic</p>
+<ul class="simple">
+<li><p>Solution: <span class="math notranslate nohighlight">\(\hat{\textbf{a}}=(\textbf{X}^\text{T}\textbf{X}+\lambda \textbf{I})^{-1}\textbf{X}^\text{T}\textbf{y}\)</span></p></li>
+</ul>
+<p>How to select the <strong>Hyperparameter</strong> <span class="math notranslate nohighlight">\(\lambda\)</span>?</p>
+<ul class="simple">
+<li><p><strong>Validation</strong> (This is the time you start to see the so-called validation data!)</p></li>
+<li><p><strong>Cross-validation</strong> (We’ll continue to talk about this during the NN topic)</p></li>
+</ul>
 </section>
 <section id="lasso">
 <h4>Lasso<a class="headerlink" href="#lasso" title="Link to this heading">#</a></h4>
-<p>a.k.a. L-1 regularization</p>
-<p>Lasso is typically solved numerically since its loss function is not differentiable.</p>
-<p>The most distinct difference between Lasso and Ridge: predictor selection</p>
+<p>a.k.a. L-1 regularization or “least absolute shrinkage and selection operator”</p>
+<p><strong>Architecture</strong>: same as MLR</p>
+<p><strong>Loss function</strong>: Regularized OLS. <span class="math notranslate nohighlight">\( J = \boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon} + \lambda \sum_{j=1}^{m}|a_j|\)</span></p>
+<ul class="simple">
+<li><p>What is its implicit form?</p></li>
+</ul>
+<p><strong>Solver</strong>: Typically solved numerically since the loss function is indifferentiable. We’ll talk about some possible methods in the next topic.</p>
+<p>LASSO also works as a predictor selector – how so?</p>
+<ul class="simple">
+<li><p>Finding the constraint region of Ridge and LASSO</p></li>
+<li><p>What is the shape of the regions?</p></li>
+<li><p>Lasso finds a solution with greater sparsity.</p></li>
+</ul>
 </section>
 </section>
 <section id="generalized-least-squares">
 <h3>Generalized Least Squares<a class="headerlink" href="#generalized-least-squares" title="Link to this heading">#</a></h3>
-<p>Exploring more ways to redesign the loss function!</p>
-<p>Data covariance matrix and weighted least squares</p>
+<p>a.k.a. Weighted least squares (WLS). Exploring more ways to redesign the loss function!</p>
+<p><strong>Architecture</strong>: same as MLR</p>
+<p><strong>Loss function</strong>: WLS; <span class="math notranslate nohighlight">\( J = \boldsymbol{\epsilon}^\text{T} \textbf{C}^{-1}\boldsymbol{\epsilon}\)</span> where <span class="math notranslate nohighlight">\(\textbf{C}\)</span> is the covariance matrix of the residual.</p>
+<p><strong>Solver</strong>: Analytically.</p>
+<p>What does this model typically imply for the assumption about the data? Why Mahalanobis distance?</p>
 </section>
 </section>
 <section id="final-thoughts">
 <h2>Final thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading">#</a></h2>
+<p><strong>Under what circumstances do we prefer to sacrifice unbiasedness?</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\textbf{X}^\text{T}\textbf{X}\)</span> is not invertible (i.e., <span class="math notranslate nohighlight">\(\textbf{X}\)</span> is a rank-deficient matrix)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\textbf{X}^\text{T}\textbf{X}\)</span> is invertible, but <span class="math notranslate nohighlight">\(\textbf{X}\)</span> has columns that are highly correlated to each other (i.e., <span class="math notranslate nohighlight">\(\textbf{X}\)</span> is an ill=conditioned matrix)</p></li>
+<li><p>Are there other reasons? (1)</p></li>
+<li><p>Are there other reasons? (2)</p></li>
+</ul>
 </section>
 <section id="group-discussion-demos">
 <h2>Group discussion &amp; Demos<a class="headerlink" href="#group-discussion-demos" title="Link to this heading">#</a></h2>
