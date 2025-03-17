@@ -67,7 +67,7 @@ Here are tests we may mention during the class lecture:
 - Wilcoxon–Mann–Whitney test: Location (mean) difference 
 - Kolmogorov–Smirnov test: Goodness of fit for continuous data
   - Test statistic: maximum vertical distance from two CDF lines
-- Pearson's chi-squared test: Goodness of fit for categorical data
+<!-- - Pearson's chi-squared test: Goodness of fit for categorical data -->
 
 ### Confidence interval (CI) 
 

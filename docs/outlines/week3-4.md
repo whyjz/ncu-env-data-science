@@ -86,32 +86,60 @@ What are its benefits?
 - To keep all the predictors in the regression model
 - To improve the solution by making the input towards full rank or better conditions.
 
+Example: The one-hot encoding case from the worksheet
+
 #### Ridge regression
 
 a.k.a. L-2 regularization or Tikhonov regression 
 
-Two expressions of the ridge regression: Implicit (Lagrangian, check out Appendix B of the textbook) and Explicit
+**Architecture**: same as MLR
 
-ridge regression solution:
-- $\hat{\textbf{a}}=(\textbf{X}^\text{T}\textbf{X}+\lambda \textbf{I})^{-1}\textbf{X}^\text{T}\textbf{y}$
+**Loss function**: Regularized OLS. $ J = \boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon} + \lambda\textbf{a}^\text{T}\textbf{a}$
+- This is the explicit expression using the Lagrange multiplier $\lambda$.
+- It is equivalent to a standard OLS ($\boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon}$) under a constraint $\textbf{a}^\text{T}\textbf{a} \leq b$. See Appendix B of the textbook for more details.
 
-How to select $\lambda$?
+**Solver**: Analytic
+- Solution: $\hat{\textbf{a}}=(\textbf{X}^\text{T}\textbf{X}+\lambda \textbf{I})^{-1}\textbf{X}^\text{T}\textbf{y}$
+
+How to select the **Hyperparameter** $\lambda$?
+- **Validation** (This is the time you start to see the so-called validation data!)
+- **Cross-validation** (We'll continue to talk about this during the NN topic)
 
 #### Lasso
 
-a.k.a. L-1 regularization
+a.k.a. L-1 regularization or "least absolute shrinkage and selection operator"
 
-Lasso is typically solved numerically since its loss function is not differentiable.
+**Architecture**: same as MLR
 
-The most distinct difference between Lasso and Ridge: predictor selection
+**Loss function**: Regularized OLS. $ J = \boldsymbol{\epsilon}^\text{T} \boldsymbol{\epsilon} + \lambda \sum_{j=1}^{m}|a_j|$
+- What is its implicit form?
+
+**Solver**: Typically solved numerically since the loss function is indifferentiable. We'll talk about some possible methods in the next topic.
+
+LASSO also works as a predictor selector -- how so?
+- Finding the constraint region of Ridge and LASSO
+- What is the shape of the regions?
+- Lasso finds a solution with greater sparsity.
 
 ### Generalized Least Squares
 
-Exploring more ways to redesign the loss function!
+a.k.a. Weighted least squares (WLS). Exploring more ways to redesign the loss function!
 
-Data covariance matrix and weighted least squares
+**Architecture**: same as MLR
+
+**Loss function**: WLS; $ J = \boldsymbol{\epsilon}^\text{T} \textbf{C}^{-1}\boldsymbol{\epsilon}$ where $\textbf{C}$ is the covariance matrix of the residual.
+
+**Solver**: Analytically.
+
+What does this model typically imply for the assumption about the data? Why Mahalanobis distance?
 
 ## Final thoughts
+
+**Under what circumstances do we prefer to sacrifice unbiasedness?**
+- $\textbf{X}^\text{T}\textbf{X}$ is not invertible (i.e., $\textbf{X}$ is a rank-deficient matrix)
+- $\textbf{X}^\text{T}\textbf{X}$ is invertible, but $\textbf{X}$ has columns that are highly correlated to each other (i.e., $\textbf{X}$ is an ill=conditioned matrix)
+- Are there other reasons? (1)
+- Are there other reasons? (2)
 
 ## Group discussion & Demos
 

@@ -59,11 +59,11 @@ Readings and assignments are due **before the class starts**.
   - Problem set #2
 * - 7 (4/1)
   - Neural Networks (I)
-  - TBD
+  - 6.1--6.4, 7.1, 7.2
   - 
 * - 8 (4/8)
   - Neural Networks (II)
-  - TBD
+  - 7.3--7.6, 8.1--8.6
   - Term project proposal
 * - 9 (4/15)
   - Kernel Methods (I)
