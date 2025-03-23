@@ -42,57 +42,57 @@ Readings and assignments are due **before the class starts**.
   - 
   -
 * - 3 (3/4)
-  - Statistical Tests
+  - Statistical Tests (I)
   - 4.1--4.5, 4.8
   -
 * - 4 (3/11)
-  - Linear Models and Regularization (I)
+  - Statistical Tests (II)
   - 2.11, 5.1, 5.2, 5.5
   - Problem set #1
 * - 5 (3/18)
-  - Linear Models and Regularization (II)
+  - Linear Models and Regularization (I)
   - 2.12, 2.13, 5.6--5.10
   - 
 * - 6 (3/25)
   - *NO CLASS*
   - 
-  - Problem set #2
+  - 
 * - 7 (4/1)
-  - Neural Networks (I)
+  - Linear Models and Regularization (II) 
   - 6.1--6.4, 7.1, 7.2
   - 
 * - 8 (4/8)
-  - Neural Networks (II)
+  - Neural Networks (I)
   - 7.3--7.6, 8.1--8.6
-  - Term project proposal
+  - Problem set #2  
 * - 9 (4/15)
+  - Neural Networks (II)
+  - TBD
+  - Term project proposal  
+* - 10 (4/22)
   - Kernel Methods (I)
   - TBD
   - Problem set #3
-* - 10 (4/22)
-  - Kernel Methods (II)
-  - TBD
-  - 
 * - 11 (4/29)
   - *NO CLASS*
   - 
-  - Problem set #4
+  - 
 * - 12 (5/6)
-  - Neural Networks (III)
+  - Kernel Methods (II)
   - TBD
   - 
 * - 13 (5/13)
   - Ensemble Methods (I)
   - TBD
-  - 
+  - Problem set #4
 * - 14 (5/20)
   - Ensemble Methods (II)
   - TBD
-  - Problem set #5
+  - 
 * - 15 (5/27)
   - Outlook: Physics-informed learning models
   - TBD
-  - 
+  - Problem set #5
 * - 16 (6/3)
   - Term project presentation | Post-course Quiz
   -
