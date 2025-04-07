@@ -67,11 +67,11 @@ Readings and assignments are due **before the class starts**.
   - Problem set #2  
 * - 9 (4/15)
   - Neural Networks (II)
-  - TBD
+  - 2.14--2.16, 6.5, 6.8, 8.7, 8.8
   - Term project proposal  
 * - 10 (4/22)
   - Kernel Methods (I)
-  - TBD
+  - 12.1--12.3, 13.1--13.5
   - Problem set #3
 * - 11 (4/29)
   - *NO CLASS*
@@ -79,7 +79,7 @@ Readings and assignments are due **before the class starts**.
   - 
 * - 12 (5/6)
   - Kernel Methods (II)
-  - TBD
+  - 13.6--13.8
   - 
 * - 13 (5/13)
   - Ensemble Methods (I)
@@ -106,6 +106,8 @@ Readings and assignments are due **before the class starts**.
   - 
   - 
 ```
+
+<!-- 15.1--15.3 -->
 
 <!-- * - 1 (Feb 20)
   - Syllabus and warm-up

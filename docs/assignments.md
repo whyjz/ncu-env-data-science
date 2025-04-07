@@ -2,22 +2,24 @@
 
 ## Problem set #1
 
-1. Complete Exercises 4.1 in Hsieh's book.
-2. Complete Exercises 4.5 in Hsieh's book. (Source data: `SWE_Nino_Nina.csv`)
-3. Complete Exercises 4.6 in Hsieh's book. (Source data: `nino12_long_anom.csv` & `nino34_long_anom.csv`)
+1. Complete Exercise 4.1 in Hsieh's book.
+2. Complete Exercise 4.5 in Hsieh's book. (Source data: `SWE_Nino_Nina.csv`)
+3. Complete Exercise 4.6 in Hsieh's book. (Source data: `nino12_long_anom.csv` & `nino34_long_anom.csv`)
 4. For the SWE data in `SWE_Nino_Nina.csv`, calculate the 95% CI of their median value using bootstrapping. Be sure to avoid the percentile method.
 5. Reproduce the figure for Q3 in the Pre-course Quiz. ([Figure Link](https://drive.google.com/file/d/15WejYTcSHDGM3VNoX32WaD5r8l-BNNF-/view?usp=sharing)) *Figure credit: Nicolas P. Rougier (2021)*.
 
 ## Problem set #2
 
-1. Complete Exercises 5.7 in Hsieh's book. (Source data: `Milwaukee_wind_direction_ozone.csv`)
+1. Complete Exercise 5.7 in Hsieh's book. (Source data: `Milwaukee_wind_direction_ozone.csv`)
 2. Visualize `SWE_tele.csv` and make a few arguments that the generated figures can visually support.
-3. Complete Exercises 5.8 in Hsieh's book. (Source data: `SWE_tele.csv`)
-4. Complete Exercises 5.9 in Hsieh's book. (Source data: `SWE_tele.csv`)
+3. Complete Exercise 5.8 in Hsieh's book. (Source data: `SWE_tele.csv`)
+4. Complete Exercise 5.9 in Hsieh's book. (Source data: `SWE_tele.csv`)
 
 ## Problem set #3
 
-TBD.
+1. Complete Exercise 6.5 in Hsieh's book. Please use the cross-validation technique to tune at least one model hyperparameter. (Source data: `SWE_tele.csv`)
+2. Complete Exercise 8.1 in Hsieh's book. Please tune the learning rate for the MLP NN model. I have generated the input data for you, which can be downloaded from [this link](https://drive.google.com/drive/folders/1_qCa8-g6zYXFj7Pz8RD1JEj3hgtImE5O?usp=sharing) (`data_noise-*.csv`). 
+3. Visualize the regression results of Exercise 8.1 at least for the case with the Gaussian noise at 0.5 times the standard deviation of $ y_{\textrm{signal}}$. 
 
 ## Problem set #4
 
@@ -36,6 +38,8 @@ Complete Exercises 5.2, 5.6, 5.7, and 5.9 in Hsieh's book.
 ## Problem set #3
 
 Complete Exercises 6.5, 6.6, and 8.1 in Hsieh's book.
+
+2. Complete Exercise 6.6 in Hsieh's book. (Source data: `YVR_prcp_training.csv` & `YVR_prcp_testing.csv`)
 
 ## Problem set #4
 
