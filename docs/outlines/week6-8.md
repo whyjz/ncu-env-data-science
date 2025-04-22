@@ -34,7 +34,23 @@ The simplest NN that has a practical use!
 
 **Solver**: Must be solved numerically. (see below)
 
-#### Challenges of a MLP NN
+### Optimizing a non-quadratic loss function
+
+Now the loss function $J(\textbf{w})$ can have many local minima in the parameter space. An analytical solution is no longer possible.
+
+#### Newton's method
+
+This method involves the calculation of the Hessian matrix $\textbf{H}_0$, which contains all the second order derivatives of $J$ assessed at $\textbf{w}_0$. One iteration can be expressed as
+
+$\textbf{w}_{k+1} = \textbf{w}_k - \textbf{H}_k^{-1} \nabla J(\textbf{w}_k)$
+
+#### Gradient descent method 
+
+This method replaces the Hessian matrix $\textbf{H}_0$ with a fixed or a flexible step size $\eta$, which is typically called a **learning rate**:
+
+$\textbf{w}_{k+1} = \textbf{w}_k - \eta \nabla J(\textbf{w}_k)$
+
+### Optimizing an MLP NN
 
 Challenges due to its architecture:
 - Curse of dimensionality?
@@ -44,9 +60,17 @@ Challenges due to the solver:
 
 How to address these challenges? Ensembles? Regularizations?
 
-#### Advantages of a MLP NN
+If the number of nodes is sufficiently large, we can achieve universal approximation even with only one hidden layer!
 
-A Universal approximation even with only one hidden layer!
+#### Back-Propagation
+
+The life save of the MLP problem!
+
+From the textbook: "Nowadays, the term ‘back-propagation’ is used somewhat ambiguously."
+- It could mean the original back-propagation algorithm (with inefficient gradient descent)
+- or, more likely, it could mean using only the first part involving the backward error propagation to compute the gradient of J
+
+### Gradient descent method
 
 ### Extreme learning Machine (ELM)
 
@@ -73,16 +97,6 @@ What are the advantages?
 This is another way to reduce the non-linearity of NN into a linear problem.
 
 Why is it called "Radial Basis?" We'll revisit this during the kernel method section. -->
-
-### Solving MLP NN: Back-Propagation
-
-The life save of the MLP problem!
-
-Learning rate $\eta$
-
-From the textbook: "Nowadays, the term ‘back-propagation’ is used somewhat ambiguously."
-- It could mean the original back-propagation algorithm (with inefficient gradient descent)
-- or, more likely, it could mean using only the first part involving the backward error propagation to compute the gradient of J
 
 ### Tuning and validation
 
