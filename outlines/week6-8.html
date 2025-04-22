@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'outlines/week6-8';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kernel Methods: Is dimensionality a curse or a blessing?" href="week10-11.html" />
     <link rel="prev" title="Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?" href="week3-4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="week2.html">Statistical Tests: How do they relate to machine learning?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week3-4.html">Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Neural Networks: How can you trust complex models that seem like black boxes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week10-11.html">Kernel Methods: Is dimensionality a curse or a blessing?</a></li>
 </ul>
 
     </div>
@@ -333,16 +335,21 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-outline">Lecture outline</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptrons">Perceptrons</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptrons-mlp">Multi-layer Perceptrons (MLP)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-of-a-mlp-nn">Challenges of a MLP NN</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-a-mlp-nn">Advantages of a MLP NN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptrons-mlp">Multi-layer Perceptrons (MLP)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-a-non-quadratic-loss-function">Optimizing a non-quadratic loss function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-method">Gradient descent method</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-an-mlp-nn">Optimizing an MLP NN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-propagation">Back-Propagation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradient descent method</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme learning Machine (ELM)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-elm">Advantages of ELM</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-mlp-nn-back-propagation">Solving MLP NN: Back-Propagation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">Tuning and validation</a></li>
 </ul>
 </li>
@@ -394,8 +401,23 @@ document.write(`
 </ul>
 <p><strong>Loss function</strong>: The most common selection is the mean squared error (MSE).</p>
 <p><strong>Solver</strong>: Must be solved numerically. (see below)</p>
-<section id="challenges-of-a-mlp-nn">
-<h4>Challenges of a MLP NN<a class="headerlink" href="#challenges-of-a-mlp-nn" title="Link to this heading">#</a></h4>
+</section>
+<section id="optimizing-a-non-quadratic-loss-function">
+<h3>Optimizing a non-quadratic loss function<a class="headerlink" href="#optimizing-a-non-quadratic-loss-function" title="Link to this heading">#</a></h3>
+<p>Now the loss function <span class="math notranslate nohighlight">\(J(\textbf{w})\)</span> can have many local minima in the parameter space. An analytical solution is no longer possible.</p>
+<section id="newton-s-method">
+<h4>Newton’s method<a class="headerlink" href="#newton-s-method" title="Link to this heading">#</a></h4>
+<p>This method involves the calculation of the Hessian matrix <span class="math notranslate nohighlight">\(\textbf{H}_0\)</span>, which contains all the second order derivatives of <span class="math notranslate nohighlight">\(J\)</span> assessed at <span class="math notranslate nohighlight">\(\textbf{w}_0\)</span>. One iteration can be expressed as</p>
+<p><span class="math notranslate nohighlight">\(\textbf{w}_{k+1} = \textbf{w}_k - \textbf{H}_k^{-1} \nabla J(\textbf{w}_k)\)</span></p>
+</section>
+<section id="gradient-descent-method">
+<h4>Gradient descent method<a class="headerlink" href="#gradient-descent-method" title="Link to this heading">#</a></h4>
+<p>This method replaces the Hessian matrix <span class="math notranslate nohighlight">\(\textbf{H}_0\)</span> with a fixed or a flexible step size <span class="math notranslate nohighlight">\(\eta\)</span>, which is typically called a <strong>learning rate</strong>:</p>
+<p><span class="math notranslate nohighlight">\(\textbf{w}_{k+1} = \textbf{w}_k - \eta \nabla J(\textbf{w}_k)\)</span></p>
+</section>
+</section>
+<section id="optimizing-an-mlp-nn">
+<h3>Optimizing an MLP NN<a class="headerlink" href="#optimizing-an-mlp-nn" title="Link to this heading">#</a></h3>
 <p>Challenges due to its architecture:</p>
 <ul class="simple">
 <li><p>Curse of dimensionality?</p></li>
@@ -405,11 +427,19 @@ document.write(`
 <li><p>Optimation process falls into local minimum depending on the initial weight selections.</p></li>
 </ul>
 <p>How to address these challenges? Ensembles? Regularizations?</p>
+<p>If the number of nodes is sufficiently large, we can achieve universal approximation even with only one hidden layer!</p>
+<section id="back-propagation">
+<h4>Back-Propagation<a class="headerlink" href="#back-propagation" title="Link to this heading">#</a></h4>
+<p>The life save of the MLP problem!</p>
+<p>From the textbook: “Nowadays, the term ‘back-propagation’ is used somewhat ambiguously.”</p>
+<ul class="simple">
+<li><p>It could mean the original back-propagation algorithm (with inefficient gradient descent)</p></li>
+<li><p>or, more likely, it could mean using only the first part involving the backward error propagation to compute the gradient of J</p></li>
+</ul>
 </section>
-<section id="advantages-of-a-mlp-nn">
-<h4>Advantages of a MLP NN<a class="headerlink" href="#advantages-of-a-mlp-nn" title="Link to this heading">#</a></h4>
-<p>A Universal approximation even with only one hidden layer!</p>
 </section>
+<section id="id1">
+<h3>Gradient descent method<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 </section>
 <section id="extreme-learning-machine-elm">
 <h3>Extreme learning Machine (ELM)<a class="headerlink" href="#extreme-learning-machine-elm" title="Link to this heading">#</a></h3>
@@ -432,16 +462,6 @@ This is another way to reduce the non-linearity of NN into a linear problem.
 
 Why is it called "Radial Basis?" We'll revisit this during the kernel method section. -->
 </section>
-</section>
-<section id="solving-mlp-nn-back-propagation">
-<h3>Solving MLP NN: Back-Propagation<a class="headerlink" href="#solving-mlp-nn-back-propagation" title="Link to this heading">#</a></h3>
-<p>The life save of the MLP problem!</p>
-<p>Learning rate <span class="math notranslate nohighlight">\(\eta\)</span></p>
-<p>From the textbook: “Nowadays, the term ‘back-propagation’ is used somewhat ambiguously.”</p>
-<ul class="simple">
-<li><p>It could mean the original back-propagation algorithm (with inefficient gradient descent)</p></li>
-<li><p>or, more likely, it could mean using only the first part involving the backward error propagation to compute the gradient of J</p></li>
-</ul>
 </section>
 <section id="tuning-and-validation">
 <h3>Tuning and validation<a class="headerlink" href="#tuning-and-validation" title="Link to this heading">#</a></h3>
@@ -495,6 +515,15 @@ Help reduce the variance error (Section 8.3)
         <p class="prev-next-title">Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?</p>
       </div>
     </a>
+    <a class="right-next"
+       href="week10-11.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kernel Methods: Is dimensionality a curse or a blessing?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -513,16 +542,21 @@ Help reduce the variance error (Section 8.3)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-outline">Lecture outline</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptrons">Perceptrons</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptrons-mlp">Multi-layer Perceptrons (MLP)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-of-a-mlp-nn">Challenges of a MLP NN</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-a-mlp-nn">Advantages of a MLP NN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptrons-mlp">Multi-layer Perceptrons (MLP)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-a-non-quadratic-loss-function">Optimizing a non-quadratic loss function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-method">Gradient descent method</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-an-mlp-nn">Optimizing an MLP NN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-propagation">Back-Propagation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradient descent method</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme learning Machine (ELM)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-elm">Advantages of ELM</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-mlp-nn-back-propagation">Solving MLP NN: Back-Propagation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">Tuning and validation</a></li>
 </ul>
 </li>

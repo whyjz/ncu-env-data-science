@@ -7,16 +7,16 @@ Whyjay Zheng (鄭懷傑), whyjz@csrsr.ncu.edu.tw, Tuesday 10:00 am -- 12:30 pm a
 
 ## Course Goals
 
-- Familiar yourself with the language data scientists use to communicate. 
+- Familiarize yourself with the language data scientists use to communicate. 
 - Understand some of the most popular statistical models in environmental science.
-- Develop skills to process real data for insights.
-- Collaborate with your teammates for a big data science project.
+- Develop skills to process real data and gain insights.
+- Collaborate with your teammates on a big data science project.
 
 ## Prerequisites 
 
 Before taking this course, you should already have the necessary knowledge about statistics and computer programming. Check out [this web page](https://scikit-learn.org/stable/tutorial/statistical_inference/supervised_learning.html) and see if you can understand most of the ideas and steps presented here within a reasonable reading time. 
 
-If more than two questions in the Pre-course Quiz are challenging, I suggest you take introductory statistics/programming first.
+If more than two questions in the Pre-course Quiz are challenging, I suggest taking introductory statistics or programming first.
 
 ## Textbook
 
