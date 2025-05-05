@@ -70,7 +70,7 @@ Readings and assignments are due **before the class starts**.
   - 2.14--2.16, 6.5, 6.8, 8.7, 8.8
   - Term project proposal  
 * - 10 (4/22)
-  - Kernel Methods (I)
+  - Neural Networks (III)
   - 12.1--12.3, 13.1--13.5
   - Problem set #3
 * - 11 (4/29)
@@ -78,25 +78,25 @@ Readings and assignments are due **before the class starts**.
   - 
   - 
 * - 12 (5/6)
-  - Kernel Methods (II)
+  - Kernel Methods (I)
   - 13.6--13.8
   - 
 * - 13 (5/13)
+  - Kernel Methods (II)
+  - 15.1--15.3
+  - 
+* - 14 (5/20)
   - Ensemble Methods (I)
   - TBD
   - Problem set #4
-* - 14 (5/20)
+* - 15 (5/27)
   - Ensemble Methods (II)
   - TBD
   - 
-* - 15 (5/27)
-  - Outlook: Physics-informed learning models
-  - TBD
-  - Problem set #5
 * - 16 (6/3)
   - Term project presentation | Post-course Quiz
   -
-  - 
+  - Problem set #5
 * - 17 (6/10)
   - *NO CLASS*
   - 
@@ -108,7 +108,7 @@ Readings and assignments are due **before the class starts**.
 ```
 
 <!-- 15.1--15.3 -->
-
+<!-- Outlook: Physics-informed learning models -->
 <!-- * - 1 (Feb 20)
   - Syllabus and warm-up
   - 
