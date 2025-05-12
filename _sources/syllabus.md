@@ -87,11 +87,11 @@ Readings and assignments are due **before the class starts**.
   - 
 * - 14 (5/20)
   - Ensemble Methods (I)
-  - TBD
+  - 2.17, 14.1, 14.2
   - Problem set #4
 * - 15 (5/27)
   - Ensemble Methods (II)
-  - TBD
+  - 14.3, 16.8, 16.9, 17.2
   - 
 * - 16 (6/3)
   - Term project presentation | Post-course Quiz
