@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="outlines/week3-4.html">Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outlines/week6-8.html">Neural Networks: How can you trust complex models that seem like black boxes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outlines/week10-11.html">Kernel Methods: Is dimensionality a curse or a blessing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlines/week13-14.html">Ensemble Methods: Should the “ants” be the same?</a></li>
 </ul>
 
     </div>
@@ -391,14 +392,12 @@ document.write(`
 </section>
 <section id="problem-set-5">
 <h2>Problem set #5<a class="headerlink" href="#problem-set-5" title="Link to this heading">#</a></h2>
-<p>TBD.</p>
+<ol class="arabic simple">
+<li><p>Complete Exercise 12.5 in Hsieh’s book. Please use the Linear Discriminant Analysis (LDA) model. You’ll need to determine some details about how to process the data. Specify them. (Source data: <code class="docutils literal notranslate"><span class="pre">SydneyAirport_weather.csv</span></code>)</p></li>
+<li><p>Complete Exercise 14.3 in Hsieh’s book. Please use the same preprocessing workflow as in the previous question for the data. Challenge yourself and see if you can build a better model than LDA! (Source data: <code class="docutils literal notranslate"><span class="pre">SydneyAirport_weather.csv</span></code>)</p></li>
+<li><p>Complete Exercise 14.5 in Hsieh’s book, including (b). Visualize the regression results by plotting the data and predictions alongside several important predictors. (Source data: <code class="docutils literal notranslate"><span class="pre">bike_sharing_daily_data.csv</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">bike_sharing_Readme.txt</span></code>)</p></li>
+</ol>
 <!-- 
-
-## Problem set #4
-
-1. Complete Exercise 12.1 in Hsieh's book.
-2. Following the first question, use the support vector machine to classify the forest types in the given dataset. Feel free to choose one-versus-the-rest or one-versus-one approach (and specify your choice). Train using the first two predictors and compare the results with the linear discriminant analysis.
-3. Generate a synthetic signal with added noise $y = \sin x + 0.5 \times \mathcal{N}(0, 1)$ and collect 40 data points that are distributed within the range $x = [0, 4\pi]$. Now use (a) ridge regression, (b) kernel ridge regression, and (c) Gaussian progress regression to model the data and give the prediction at the range $x = [0, 8\pi]$ with visualization. Describe and justify your kernel selection and hyperparameter tuning process whenever necessary. Compare the results from three regression methods.
 
 ## Problem set #5
 
