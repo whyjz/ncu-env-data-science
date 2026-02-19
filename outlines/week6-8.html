@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Neural Networks: How can you trust complex models that seem like black boxes? &#8212; Environmental Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'outlines/week6-8';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/csrsr_logo.png" class="logo__image only-light" alt="Environmental Data Science - Home"/>
+    <script>document.write(`<img src="../_static/csrsr_logo.png" class="logo__image only-dark" alt="Environmental Data Science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project.html">Title (Replace it with your project title)</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Outlines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1.html">Warming-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3-4.html">Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/outlines/week6-8.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Neural Networks: How can you trust complex models that seem like black boxes?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-outline">Lecture outline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptrons">Perceptrons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptrons-mlp">Multi-layer Perceptrons (MLP)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-a-non-quadratic-loss-function">Optimizing a non-quadratic loss function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-method">Gradient descent method</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-an-mlp-nn">Optimizing an MLP NN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-propagation">Back-Propagation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradient descent method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme learning Machine (ELM)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-elm">Advantages of ELM</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">Tuning and validation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="neural-networks-how-can-you-trust-complex-models-that-seem-like-black-boxes">
+<h1>Neural Networks: How can you trust complex models that seem like black boxes?<a class="headerlink" href="#neural-networks-how-can-you-trust-complex-models-that-seem-like-black-boxes" title="Link to this heading">#</a></h1>
+<!-- **2024.03.26, 2024.04.02, 2024.04.09** -->
+<p><strong>2025.04.08, 2025.04.15, 2025.04.22</strong></p>
+<section id="lecture-outline">
+<h2>Lecture outline<a class="headerlink" href="#lecture-outline" title="Link to this heading">#</a></h2>
+<p>Neural Network (NN): its biological origin and how it relates to data science</p>
+<section id="perceptrons">
+<h3>Perceptrons<a class="headerlink" href="#perceptrons" title="Link to this heading">#</a></h3>
+<p>This is the most basic structure of a neural network!</p>
+<p><strong>Architecture</strong>: For a model with only a single output variable <span class="math notranslate nohighlight">\(y\)</span>: <span class="math notranslate nohighlight">\(\hat{y} = f\Big(\sum_i w_i x_i + b\Big)\)</span></p>
+<ul class="simple">
+<li><p><strong>Activation function</strong> <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<ul>
+<li><p>Heaviside step function</p></li>
+<li><p>logistic function (or <span class="math notranslate nohighlight">\(tanh\)</span>)</p></li>
+<li><p>Rectified linear unit (ReLU)</p></li>
+<li><p>Softplus</p></li>
+</ul>
+</li>
+</ul>
+<p>Limitation on non-linear separation: only works for the <em>linearly separable</em> cases.</p>
+</section>
+<section id="multi-layer-perceptrons-mlp">
+<h3>Multi-layer Perceptrons (MLP)<a class="headerlink" href="#multi-layer-perceptrons-mlp" title="Link to this heading">#</a></h3>
+<p>The simplest NN that has a practical use!</p>
+<p><strong>Architecture</strong>: For a model with only a single output variable <span class="math notranslate nohighlight">\(y\)</span>: <span class="math notranslate nohighlight">\(h_j = f\Big(\sum_i^{m_1} w_{ji} x_i + b_j\Big),\quad \hat{y} = g\Big(\sum_j^{m_2} \tilde{w}_{kj} h_j + \tilde{b}_k\Big)\)</span></p>
+<ul class="simple">
+<li><p><strong>Hidden layer</strong>: transform the linear perceptron model into a non-linear model.</p>
+<ul>
+<li><p>number of model parameters. In NN, model parameters are also called <strong>weights.</strong></p></li>
+<li><p><strong>Hyperparameters</strong> parameters related to the architecture. Examples: number of hidden nodes.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Loss function</strong>: The most common selection is the mean squared error (MSE).</p>
+<p><strong>Solver</strong>: Must be solved numerically. (see below)</p>
+</section>
+<section id="optimizing-a-non-quadratic-loss-function">
+<h3>Optimizing a non-quadratic loss function<a class="headerlink" href="#optimizing-a-non-quadratic-loss-function" title="Link to this heading">#</a></h3>
+<p>Now the loss function <span class="math notranslate nohighlight">\(J(\textbf{w})\)</span> can have many local minima in the parameter space. An analytical solution is no longer possible.</p>
+<section id="newton-s-method">
+<h4>Newton’s method<a class="headerlink" href="#newton-s-method" title="Link to this heading">#</a></h4>
+<p>This method involves the calculation of the Hessian matrix <span class="math notranslate nohighlight">\(\textbf{H}_0\)</span>, which contains all the second order derivatives of <span class="math notranslate nohighlight">\(J\)</span> assessed at <span class="math notranslate nohighlight">\(\textbf{w}_0\)</span>. One iteration can be expressed as</p>
+<p><span class="math notranslate nohighlight">\(\textbf{w}_{k+1} = \textbf{w}_k - \textbf{H}_k^{-1} \nabla J(\textbf{w}_k)\)</span></p>
+</section>
+<section id="gradient-descent-method">
+<h4>Gradient descent method<a class="headerlink" href="#gradient-descent-method" title="Link to this heading">#</a></h4>
+<p>This method replaces the Hessian matrix <span class="math notranslate nohighlight">\(\textbf{H}_0\)</span> with a fixed or a flexible step size <span class="math notranslate nohighlight">\(\eta\)</span>, which is typically called a <strong>learning rate</strong>:</p>
+<p><span class="math notranslate nohighlight">\(\textbf{w}_{k+1} = \textbf{w}_k - \eta \nabla J(\textbf{w}_k)\)</span></p>
+</section>
+</section>
+<section id="optimizing-an-mlp-nn">
+<h3>Optimizing an MLP NN<a class="headerlink" href="#optimizing-an-mlp-nn" title="Link to this heading">#</a></h3>
+<p>Challenges due to its architecture:</p>
+<ul class="simple">
+<li><p>Curse of dimensionality?</p></li>
+</ul>
+<p>Challenges due to the solver:</p>
+<ul class="simple">
+<li><p>Optimation process falls into local minimum depending on the initial weight selections.</p></li>
+</ul>
+<p>How to address these challenges? Ensembles? Regularizations?</p>
+<p>If the number of nodes is sufficiently large, we can achieve universal approximation even with only one hidden layer!</p>
+<section id="back-propagation">
+<h4>Back-Propagation<a class="headerlink" href="#back-propagation" title="Link to this heading">#</a></h4>
+<p>The life save of the MLP problem!</p>
+<p>From the textbook: “Nowadays, the term ‘back-propagation’ is used somewhat ambiguously.”</p>
+<ul class="simple">
+<li><p>It could mean the original back-propagation algorithm (with inefficient gradient descent)</p></li>
+<li><p>or, more likely, it could mean using only the first part involving the backward error propagation to compute the gradient of J</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h3>Gradient descent method<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="extreme-learning-machine-elm">
+<h3>Extreme learning Machine (ELM)<a class="headerlink" href="#extreme-learning-machine-elm" title="Link to this heading">#</a></h3>
+<p>The idea of using ensembles -&gt; transform a non-linear problem back to a linear problem</p>
+<p><strong>Architecture</strong>: Same as MLP; however, two rules are used to transform it into a linear problem.</p>
+<ol class="arabic simple">
+<li><p>The weights applied to the input layer are randomly assigned for each ensemble member.</p></li>
+<li><p>The actiovation function of the hidden layer is an identical function.</p></li>
+</ol>
+<p><strong>Loss function</strong>: Same as MLP.</p>
+<p><strong>Solver</strong>: the problem is analytically solved for each ensemble member.</p>
+<section id="advantages-of-elm">
+<h4>Advantages of ELM<a class="headerlink" href="#advantages-of-elm" title="Link to this heading">#</a></h4>
+<p>What are the advantages?</p>
+<!-- How to determine the number of hidden layer nodes $L$? -->
+<!-- Skip connection -->
+<!-- ### Radial Basis Functions (RBF)
+
+This is another way to reduce the non-linearity of NN into a linear problem.
+
+Why is it called "Radial Basis?" We'll revisit this during the kernel method section. -->
+</section>
+</section>
+<section id="tuning-and-validation">
+<h3>Tuning and validation<a class="headerlink" href="#tuning-and-validation" title="Link to this heading">#</a></h3>
+<p>Grid search, random search, validation, cross-validation, and double cross-validation</p>
+<!-- ### Other Emsemble methods
+
+Help reduce the variance error (Section 8.3)
+
+- Bagging
+- Stacking -->
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./outlines"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-outline">Lecture outline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptrons">Perceptrons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptrons-mlp">Multi-layer Perceptrons (MLP)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-a-non-quadratic-loss-function">Optimizing a non-quadratic loss function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-method">Gradient descent method</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-an-mlp-nn">Optimizing an MLP NN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-propagation">Back-Propagation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradient descent method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme learning Machine (ELM)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-elm">Advantages of ELM</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">Tuning and validation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Whyjay Zheng (鄭懷傑)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024-2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
