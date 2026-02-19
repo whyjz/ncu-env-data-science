@@ -1,7 +1,6 @@
 # Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?
 
-**2025.03.18, 2025.04.01**
-
+<!-- **2025.03.18, 2025.04.01** -->
 <!-- **2024.03.12, 2024.03.19** -->
 
 ## Lecture outline

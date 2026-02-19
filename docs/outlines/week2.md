@@ -1,7 +1,6 @@
 # Statistical Tests: How do they relate to machine learning?
 
-**2025.03.04, 2025.03.11**
-
+<!-- **2025.03.04, 2025.03.11** -->
 <!-- **2024.02.27, 2024.03.05** -->
 
 ## Lecture outline

@@ -1,7 +1,6 @@
 # Warming-up
 
-**2025.02.25**
-
+<!-- **2025.02.25** -->
 <!-- **2024.02.20** -->
 
 ## Lecture outline
@@ -47,16 +46,52 @@ Now let's revisit expectation, variance, and their mathematical expressions (con
 
 <!-- Derive the expectation and the variance of the Bernoulli distribution $Ber(x|p) = p^x(1-p)^{1-x}$. -->
 
-### More about probability distributions
-
-- Gaussian: many distributions converge to this thanks to the central limit theory
+Gaussian distribution: many distributions converge to this thanks to the central limit theory
   - How does this relate to Q2 in the Pre-course Quiz?
+
+<!-- ### More about probability distributions -->
+
 <!-- - Poisson distribution -->
-- Student t-distribution: Bounded to the mean
+<!-- - Student t-distribution: Bounded to the mean -->
 <!-- - Chi-squared ($\chi^2$) distribution: Bounded to the square of the Gaussians -->
-- Beta and Gamma distributions: different supports for different kinds of environment variables
+<!-- - Beta and Gamma distributions: different supports for different kinds of environment variables -->
+
+### Statistical Tests
+
+**How do statistical tests relate to machine learning?**
+- A simple alternative (we don't need to run a ML model for all questions!)
+- Having a statistics-based inference is sometimes important
+
+**Five general steps of hypothesis testing**
+1. Set up $H_0$ (null hypothesis)
+2. Set up $H_1$ (alternative hypothesis)
+3. Set up test statistic and significance level ($\alpha$)
+4. Find the null distribution for the test statistic; calculate the $p$-value
+5. Reject or not reject $H_0$ by comparing $p$ with $\alpha$
+
+### p-hacking
+
+What if we repeat the test above 100 times, each with a different sample, and report the test result with the minimum $p$? 
+
+### Confidence interval (CI) 
+
+For predicting an unknown population parameter. It uses a similar concept from hypothesis testing but without any hypothesis being made. 
+
+Significance level -> Confidence level
+
+Result reporting: 
+- xxx $\pm$ yyy (zzz% CI)
+- [aaa, bbb] (zzz% CI)
+
+Frequentist view of CI: how to interpret the interval?
+
+**Bootstrapping**: Dealing with a situation in which finding a CI for a population parameter is traditionally impossible.
+
+To find the CI of *any* population parameter using bootstrapping:
+- Percentile method: CI = $[ \theta^{\ast}_{\alpha/2}, \theta^{\ast}_{(1 - \alpha/2)} ]$ (**Do not use this!**)
+- Basic method: CI = $[ 2\theta_s - \theta^{\ast}_{(1 - \alpha/2)}, 2\theta_s - \theta^{\ast}_{\alpha/2} ]$
 
 ## Group discussion & Demos
 
 1. Discuss how you would reproduce the figure for Q3 in the Pre-course Quiz.
-2. Get the data necessary for doing Exercise 4.5 in Hsieh's book.
+2. Get the data necessary for doing Exercise 5.8 in Hsieh's book.
