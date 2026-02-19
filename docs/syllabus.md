@@ -87,8 +87,7 @@ Readings and assignments are due **before the class starts**.
   - Problem set #4
 * - 14 (5/26)
   - *NO CLASS*
-  - 
-  - 
+  -  
   - Term project paper
 * - 15 (6/2)
   - Ensemble Methods (II)
@@ -99,6 +98,7 @@ Readings and assignments are due **before the class starts**.
   -
   - Problem set #5 
 ```
+
 <!-- [2.14--2.16 12.1--12.3, 13.1--13.5]
 [13.6--13.8]
 [2.17, 14.1, 14.2]
