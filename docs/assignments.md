@@ -16,13 +16,13 @@
 3. Complete Exercise 5.8 in Hsieh's book. (Source data: `SWE_tele.csv`)
 4. Complete Exercise 5.9 in Hsieh's book. (Source data: `SWE_tele.csv`)
 
-<!-- ## Problem set #3
+## Problem set #2
 
-1. Complete Exercise 6.5 in Hsieh's book. Please use the cross-validation technique to tune at least one model hyperparameter. (Source data: `SWE_tele.csv`)
+1. Complete Exercise 6.5 in Hsieh's book. Please build an MLP NN model and use the cross-validation technique to tune at least one model hyperparameter other than the learning rate. (Source data: `SWE_tele.csv`)
 2. Complete Exercise 8.1 in Hsieh's book. Please tune the learning rate for the MLP NN model. I have generated the input data for you, which can be downloaded from [this link](https://drive.google.com/drive/folders/1_qCa8-g6zYXFj7Pz8RD1JEj3hgtImE5O?usp=sharing) (`data_noise-*.csv`). 
 3. Visualize the regression results of Exercise 8.1 at least for the case with the Gaussian noise at 0.5 times the standard deviation of $ y_{\textrm{signal}}$. 
 
-## Problem set #4
+<!--## Problem set #4
 
 1. Complete Exercise 12.1 in Hsieh's book. For subquestion (a), visualize the results to reproduce Figure 12.1(b). Make sure to label/mark correct and incorrect predictions. (Source data: `forest_testing.csv` & `forest_testing.csv`)
 2. Following the first question, use the support vector machine to classify the forest types in the given dataset. Feel free to choose one-versus-the-rest or one-versus-one approach (and specify your choice). Train using the first two predictors and compare the results with the linear discriminant analysis by visualizing them similarly.
