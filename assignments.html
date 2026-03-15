@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -333,6 +335,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-set-1">Problem set #1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-set-2">Problem set #2</a></li>
 </ul>
             </nav>
         </div>
@@ -364,13 +367,15 @@ document.write(`
 <li><p>Complete Exercise 5.8 in Hsieh’s book. (Source data: <code class="docutils literal notranslate"><span class="pre">SWE_tele.csv</span></code>)</p></li>
 <li><p>Complete Exercise 5.9 in Hsieh’s book. (Source data: <code class="docutils literal notranslate"><span class="pre">SWE_tele.csv</span></code>)</p></li>
 </ol>
-<!-- ## Problem set #3
-
-1. Complete Exercise 6.5 in Hsieh's book. Please use the cross-validation technique to tune at least one model hyperparameter. (Source data: `SWE_tele.csv`)
-2. Complete Exercise 8.1 in Hsieh's book. Please tune the learning rate for the MLP NN model. I have generated the input data for you, which can be downloaded from [this link](https://drive.google.com/drive/folders/1_qCa8-g6zYXFj7Pz8RD1JEj3hgtImE5O?usp=sharing) (`data_noise-*.csv`). 
-3. Visualize the regression results of Exercise 8.1 at least for the case with the Gaussian noise at 0.5 times the standard deviation of $ y_{\textrm{signal}}$. 
-
-## Problem set #4
+</section>
+<section id="problem-set-2">
+<h2>Problem set #2<a class="headerlink" href="#problem-set-2" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Complete Exercise 6.5 in Hsieh’s book. Please build an MLP NN model and use the cross-validation technique to tune at least one model hyperparameter other than the learning rate. (Source data: <code class="docutils literal notranslate"><span class="pre">SWE_tele.csv</span></code>)</p></li>
+<li><p>Complete Exercise 8.1 in Hsieh’s book. Please tune the learning rate for the MLP NN model. I have generated the input data for you, which can be downloaded from <a class="reference external" href="https://drive.google.com/drive/folders/1_qCa8-g6zYXFj7Pz8RD1JEj3hgtImE5O?usp=sharing">this link</a> (<code class="docutils literal notranslate"><span class="pre">data_noise-*.csv</span></code>).</p></li>
+<li><p>Visualize the regression results of Exercise 8.1 at least for the case with the Gaussian noise at 0.5 times the standard deviation of <span class="math notranslate nohighlight">\( y_{\textrm{signal}}\)</span>.</p></li>
+</ol>
+<!--## Problem set #4
 
 1. Complete Exercise 12.1 in Hsieh's book. For subquestion (a), visualize the results to reproduce Figure 12.1(b). Make sure to label/mark correct and incorrect predictions. (Source data: `forest_testing.csv` & `forest_testing.csv`)
 2. Following the first question, use the support vector machine to classify the forest types in the given dataset. Feel free to choose one-versus-the-rest or one-versus-one approach (and specify your choice). Train using the first two predictors and compare the results with the linear discriminant analysis by visualizing them similarly.
@@ -457,6 +462,7 @@ Complete the following exercises in Hsieh's book with the specified requirements
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-set-1">Problem set #1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-set-2">Problem set #2</a></li>
 </ul>
   </nav></div>
 
