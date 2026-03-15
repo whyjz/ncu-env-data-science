@@ -1,8 +1,7 @@
 # Neural Networks: How can you trust complex models that seem like black boxes?
 
 <!-- **2024.03.26, 2024.04.02, 2024.04.09** -->
-
-**2025.04.08, 2025.04.15, 2025.04.22**
+<!-- **2025.04.08, 2025.04.15, 2025.04.22** -->
 
 ## Lecture outline
 
