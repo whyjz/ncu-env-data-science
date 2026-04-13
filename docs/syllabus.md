@@ -67,11 +67,11 @@ Readings and assignments are due **before the class starts**.
   - 
 * - 9 (4/21)
   - Principal Components (I)
-  - TBD
+  - 9.1
   - Problem set #2  
 * - 10 (4/28)
   - Principal Components (II)
-  - TBD
+  - 9.2, 9.3
   - 
 * - 11 (5/5)
   - Kernel Methods (I)
