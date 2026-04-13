@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -343,14 +343,13 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-an-mlp-nn">Optimizing an MLP NN</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-propagation">Back-Propagation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-back-propagation">Using Back-Propagation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradient descent method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme learning Machine (ELM)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-elm">Advantages of ELM</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">Tuning and validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-issues-for-non-linear-fitting">General issues for non-linear fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme Learning Machine (ELM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-hyperparameters-model-validation">Tuning hyperparameters (Model validation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-technique">Ensemble technique</a></li>
 </ul>
 </li>
 </ul>
@@ -401,6 +400,7 @@ document.write(`
 </ul>
 <p><strong>Loss function</strong>: The most common selection is the mean squared error (MSE).</p>
 <p><strong>Solver</strong>: Must be solved numerically. (see below)</p>
+<p>If the number of nodes is sufficiently large, we can achieve universal approximation even with only one hidden layer!</p>
 </section>
 <section id="optimizing-a-non-quadratic-loss-function">
 <h3>Optimizing a non-quadratic loss function<a class="headerlink" href="#optimizing-a-non-quadratic-loss-function" title="Link to this heading">#</a></h3>
@@ -418,60 +418,86 @@ document.write(`
 </section>
 <section id="optimizing-an-mlp-nn">
 <h3>Optimizing an MLP NN<a class="headerlink" href="#optimizing-an-mlp-nn" title="Link to this heading">#</a></h3>
-<p>Challenges due to its architecture:</p>
-<ul class="simple">
-<li><p>Curse of dimensionality?</p></li>
-</ul>
-<p>Challenges due to the solver:</p>
-<ul class="simple">
-<li><p>Optimation process falls into local minimum depending on the initial weight selections.</p></li>
-</ul>
-<p>How to address these challenges? Ensembles? Regularizations?</p>
-<p>If the number of nodes is sufficiently large, we can achieve universal approximation even with only one hidden layer!</p>
+<p>The structure of an MLP NN makes the calculation of <span class="math notranslate nohighlight">\(\nabla J(\textbf{w})\)</span> difficult, but the good thing is that we have the <em>back-propagation</em> algorithm, which just needs one data point to derive <span class="math notranslate nohighlight">\(\nabla J(\textbf{w})\)</span> based on model errors (<span class="math notranslate nohighlight">\(\hat{y} - y\)</span>). The term “back-propagation” means it starts by finding the gradient for the weights in the output layer, then uses those numbers to find the gradient for the weights in the previous hidden layer (i.e., propagation), and so on.</p>
 <section id="back-propagation">
 <h4>Back-Propagation<a class="headerlink" href="#back-propagation" title="Link to this heading">#</a></h4>
-<p>The life save of the MLP problem!</p>
 <p>From the textbook: “Nowadays, the term ‘back-propagation’ is used somewhat ambiguously.”</p>
 <ul class="simple">
 <li><p>It could mean the original back-propagation algorithm (with inefficient gradient descent)</p></li>
-<li><p>or, more likely, it could mean using only the first part involving the backward error propagation to compute the gradient of J</p></li>
+<li><p>or, more likely, it could mean using only the first part involving the backward error propagation to compute the <span class="math notranslate nohighlight">\(\nabla J(\textbf{w})\)</span>.</p></li>
+</ul>
+<p>As it is based on the gradient descent method, the back-propagation needs a pre-defined <strong>learning rate</strong> to initialize.</p>
+<p>For the weights connecting the hidden and output layers:</p>
+<p><span class="math notranslate nohighlight">\(\Delta \tilde{w}_{kj}=-\eta\frac{\partial J}{\partial \tilde{w}_{kj}} = \eta(y_k-\hat{y}_k)g'(\tilde{s}_k)h_j\)</span></p>
+<p>For the weights connecting the input and hidden layers:</p>
+<p><span class="math notranslate nohighlight">\(\Delta w_{ji}=-\eta\frac{\partial J}{\partial w_{ji}} = \eta \sum_k (y_k-\hat{y}_k)g'(\tilde{s}_k) \tilde{w}_{kj}f'(s_j)x_i\)</span></p>
+</section>
+<section id="using-back-propagation">
+<h4>Using Back-Propagation<a class="headerlink" href="#using-back-propagation" title="Link to this heading">#</a></h4>
+<p>Since you only need <strong>one data point</strong> to calculate <span class="math notranslate nohighlight">\(\nabla J(\textbf{w})\)</span>, there are different styles to apply the back-propagation algorithm:</p>
+<ul class="simple">
+<li><p>Sequential training: Updating weights using one data point</p></li>
+<li><p>Batch training: Updating weights using all data points (using average <span class="math notranslate nohighlight">\(\nabla J(\textbf{w})\)</span>)</p></li>
+</ul>
+<p><strong>Epoch</strong>: The time when all data points are visited (used) once.</p>
+<p>And this procedure can be performed as many times as you want until arbitrary stopping criteria. For example:</p>
+<ul class="simple">
+<li><p>When the model error (e.g., RMSE) starts to stabilize or even increase</p></li>
+<li><p>When the prediction error of the validation data set starts to stabilize or even increase (<strong>early stopping</strong>)</p></li>
 </ul>
 </section>
 </section>
-<section id="id1">
-<h3>Gradient descent method<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="general-issues-for-non-linear-fitting">
+<h3>General issues for non-linear fitting<a class="headerlink" href="#general-issues-for-non-linear-fitting" title="Link to this heading">#</a></h3>
+<!-- - Curse of dimensionality? -->
+<p>Do you have ideas for addressing these challenges?</p>
+<ul class="simple">
+<li><p>The optimization process falls into a local minimum depending on the initial weight selections.</p></li>
+<li><p>Lots of weights result in potential overfitting.</p></li>
+<li><p>Lots of hyperparameters to tune. (What are they?)</p></li>
+<li><p>When an MLP with a single hidden layer grows, it adds lots of nodes, and the processing time increases like crazy due to the curse of dimensionality.</p></li>
+</ul>
+<!-- How to address these challenges? Ensembles? Regularizations? -->
+<p>Regularizations? Dropout? …</p>
 </section>
 <section id="extreme-learning-machine-elm">
-<h3>Extreme learning Machine (ELM)<a class="headerlink" href="#extreme-learning-machine-elm" title="Link to this heading">#</a></h3>
-<p>The idea of using ensembles -&gt; transform a non-linear problem back to a linear problem</p>
+<h3>Extreme Learning Machine (ELM)<a class="headerlink" href="#extreme-learning-machine-elm" title="Link to this heading">#</a></h3>
+<p>This is one proposed solution to the challenges above. The idea of using ensembles transforms a non-linear problem back to a linear problem.</p>
 <p><strong>Architecture</strong>: Same as MLP; however, two rules are used to transform it into a linear problem.</p>
 <ol class="arabic simple">
 <li><p>The weights applied to the input layer are randomly assigned for each ensemble member.</p></li>
-<li><p>The actiovation function of the hidden layer is an identical function.</p></li>
+<li><p>The activation function of the hidden layer is an identical function.</p></li>
 </ol>
 <p><strong>Loss function</strong>: Same as MLP.</p>
 <p><strong>Solver</strong>: the problem is analytically solved for each ensemble member.</p>
-<section id="advantages-of-elm">
-<h4>Advantages of ELM<a class="headerlink" href="#advantages-of-elm" title="Link to this heading">#</a></h4>
-<p>What are the advantages?</p>
 <!-- How to determine the number of hidden layer nodes $L$? -->
-<!-- Skip connection -->
 <!-- ### Radial Basis Functions (RBF)
 
 This is another way to reduce the non-linearity of NN into a linear problem.
 
 Why is it called "Radial Basis?" We'll revisit this during the kernel method section. -->
 </section>
+<section id="tuning-hyperparameters-model-validation">
+<h3>Tuning hyperparameters (Model validation)<a class="headerlink" href="#tuning-hyperparameters-model-validation" title="Link to this heading">#</a></h3>
+<p>Multiple ways to assign validation data:</p>
+<ul class="simple">
+<li><p>Find an independent validation data set. Or reserve some data from training for later use for validation.</p></li>
+<li><p>Cross-validation: using all training data to validate the model by segmenting the data and repeated validations.</p></li>
+<li><p>Double cross-validation: an advanced cross-validation scheme to avoid issues caused by serial correlation of the input data.</p></li>
+</ul>
+<p>Multiple ways to search within the hyperparameter space:</p>
+<ul class="simple">
+<li><p>Grid search</p></li>
+<li><p>Random search</p></li>
+</ul>
 </section>
-<section id="tuning-and-validation">
-<h3>Tuning and validation<a class="headerlink" href="#tuning-and-validation" title="Link to this heading">#</a></h3>
-<p>Grid search, random search, validation, cross-validation, and double cross-validation</p>
-<!-- ### Other Emsemble methods
-
-Help reduce the variance error (Section 8.3)
-
-- Bagging
-- Stacking -->
+<section id="ensemble-technique">
+<h3>Ensemble technique<a class="headerlink" href="#ensemble-technique" title="Link to this heading">#</a></h3>
+<p>The ensemble technique helps reduce the variance error without sacrificing bias error (Section 8.3).</p>
+<ul class="simple">
+<li><p>Bagging: bootstrapping; creating different (sub-)input data sets</p></li>
+<li><p>Stacking: combining totally different non-linear models.</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -541,14 +567,13 @@ Help reduce the variance error (Section 8.3)
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-an-mlp-nn">Optimizing an MLP NN</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-propagation">Back-Propagation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-back-propagation">Using Back-Propagation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradient descent method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme learning Machine (ELM)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-elm">Advantages of ELM</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">Tuning and validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-issues-for-non-linear-fitting">General issues for non-linear fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme Learning Machine (ELM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-hyperparameters-model-validation">Tuning hyperparameters (Model validation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-technique">Ensemble technique</a></li>
 </ul>
 </li>
 </ul>
