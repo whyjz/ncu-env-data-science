@@ -22,6 +22,11 @@
 2. Complete Exercise 8.1 in Hsieh's book. Please tune the learning rate for the MLP NN model. I have generated the input data for you, which can be downloaded from [this link](https://drive.google.com/drive/folders/1_qCa8-g6zYXFj7Pz8RD1JEj3hgtImE5O?usp=sharing) (`data_noise-*.csv`). 
 3. Visualize the regression results of Exercise 8.1 at least for the case with the Gaussian noise at 0.5 times the standard deviation of $ y_{\textrm{signal}}$. 
 
+## Problem set #3
+
+1. Complete Exercise 9.4 in Hsieh's book. Please visualize the data and/or results in some ways. (Source data: `Exer_9.4.csv`)
+2. Complete Exercise 9.5 in Hsieh's book. Please visualize the data and/or results in some ways. (Source data: `SFBay_no_NaN.csv`)
+
 <!--## Problem set #4
 
 1. Complete Exercise 12.1 in Hsieh's book. For subquestion (a), visualize the results to reproduce Figure 12.1(b). Make sure to label/mark correct and incorrect predictions. (Source data: `forest_testing.csv` & `forest_testing.csv`)

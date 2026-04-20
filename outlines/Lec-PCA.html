@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ensemble Methods: Should the “ants” be the same? &#8212; Environmental Data Science</title>
+    <title>Principal Component Analysis: When to perform unsupervised learning? &#8212; Environmental Data Science</title>
   
   
   
@@ -59,9 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'outlines/week13-14';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'outlines/Lec-PCA';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Neural Networks: How can you trust complex models that seem like black boxes?" href="week6-8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -182,11 +181,11 @@
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Outlines</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="week1.html">Warming-up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week3-4.html">Linear Models and Regularization: Under what circumstances do we prefer to sacrifice unbiasedness?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week6-8.html">Neural Networks: How can you trust complex models that seem like black boxes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lec-PCA.html">Principal Component Analysis: When to perform unsupervised learning?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Principal Component Analysis: When to perform unsupervised learning?</a></li>
 </ul>
 
     </div>
@@ -241,7 +240,7 @@
       
       
       
-      <li><a href="../_sources/outlines/week13-14.md" target="_blank"
+      <li><a href="../_sources/outlines/Lec-PCA.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +324,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ensemble Methods: Should the “ants” be the same?</h1>
+    <h1>Principal Component Analysis: When to perform unsupervised learning?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -336,15 +335,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-outline">Lecture outline</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-and-regression-trees-cart">Classification and Regression Trees (CART)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randon-forest">Randon Forest</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">Boosting</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-boosting">Gradient boosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme Learning Machine (ELM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-hyperparameters-model-validation">Tuning hyperparameters (Model validation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-technique">Ensemble technique</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-discussion-demo-topics">Group discussion &amp; demo topics</a></li>
 </ul>
             </nav>
         </div>
@@ -356,46 +351,151 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ensemble-methods-should-the-ants-be-the-same">
-<h1>Ensemble Methods: Should the “ants” be the same?<a class="headerlink" href="#ensemble-methods-should-the-ants-be-the-same" title="Link to this heading">#</a></h1>
-<p><strong>2025.05.20, 2025.05.27</strong></p>
-<!-- **2024.05.14, 2024.05.21** -->
+  <section class="tex2jax_ignore mathjax_ignore" id="principal-component-analysis-when-to-perform-unsupervised-learning">
+<h1>Principal Component Analysis: When to perform unsupervised learning?<a class="headerlink" href="#principal-component-analysis-when-to-perform-unsupervised-learning" title="Link to this heading">#</a></h1>
 <section id="lecture-outline">
 <h2>Lecture outline<a class="headerlink" href="#lecture-outline" title="Link to this heading">#</a></h2>
-<section id="classification-and-regression-trees-cart">
-<h3>Classification and Regression Trees (CART)<a class="headerlink" href="#classification-and-regression-trees-cart" title="Link to this heading">#</a></h3>
-<p>Split and fit using constant functions.</p>
-<ul class="simple">
-<li><p>Prune and regularization</p></li>
-<li><p>Choosing loss function for classification: Entropy or Gini index</p></li>
-</ul>
-</section>
-<section id="randon-forest">
-<h3>Randon Forest<a class="headerlink" href="#randon-forest" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Bootstrap + CART + Ensemble</p></li>
-<li><p>Out-of-bag data for model validation (<span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(n_{min}\)</span></p></li>
-<li><p>Extremely randomized trees: No bootstrap, and instead randomly selecting split points</p></li>
-</ul>
-</section>
-<section id="boosting">
-<h3>Boosting<a class="headerlink" href="#boosting" title="Link to this heading">#</a></h3>
-<p>No bootstrap as well; instead, updating the previous model with a focus on the part the previous model does not do well.</p>
-<section id="gradient-boosting">
-<h4>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Updating the previous model using gradient descent</p></li>
-<li><p>XGBoost (regularized gradient boosting): adding more regularizations</p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="group-discussion-demo-topics">
-<h2>Group discussion &amp; demo topics<a class="headerlink" href="#group-discussion-demo-topics" title="Link to this heading">#</a></h2>
-<p>I have made a <a class="reference external" href="https://github.com/whyjz/ncu-env-data-science-template">template</a> for you to automatically publish your Jupyer notebook (or plain markdown files) using GitHub Pages. You can also find the deployed <a class="reference external" href="https://whyjz.github.io/ncu-env-data-science-template/project.html">HTML here</a>.</p>
-<!-- ## Slides (Just for my convenience; will be removed after today's class due to copyright issues)
+<p>Principal Component Analysis (PCA), aka Empirical Orthogonal Function (EOF) analysis</p>
+<p><span class="math notranslate nohighlight">\(\arg \min_{\textbf{e}_1} \text{var}(z_1) = \arg \min_{\textbf{e}_1} \textbf{e}^\textbf{T}_1\textbf{C}\textbf{e}_1\)</span> subject to <span class="math notranslate nohighlight">\(\textbf{e}^\textbf{T}_1\textbf{e}_1 - 1 = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\textbf{C}\textbf{e}_1 - \lambda \textbf{e}_1 = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(a_j(t) = \textbf{e}^\textbf{T}_j (\textbf{x} - \bar{\textbf{x}})\)</span></p>
+<p>Singular Value Decomposition</p>
+<p>TBD</p>
+<!-- Neural Network (NN): its biological origin and how it relates to data science
 
-[Slides](https://docs.google.com/presentation/d/17eIMIMbfPACRaUueoTIXn2FfH2eFSqOPnURORtjEc3g/edit?usp=sharing) --></section>
+### Perceptrons
+
+
+
+This is the most basic structure of a neural network!
+
+**Architecture**: For a model with only a single output variable $y$: $\hat{y} = f\Big(\sum_i w_i x_i + b\Big)$
+- **Activation function** $f$:
+  - Heaviside step function
+  - logistic function (or $tanh$)
+  - Rectified linear unit (ReLU)
+  - Softplus
+
+Limitation on non-linear separation: only works for the *linearly separable* cases.
+
+### Multi-layer Perceptrons (MLP)
+
+The simplest NN that has a practical use!
+
+**Architecture**: For a model with only a single output variable $y$: $h_j = f\Big(\sum_i^{m_1} w_{ji} x_i + b_j\Big),\quad \hat{y} = g\Big(\sum_j^{m_2} \tilde{w}_{kj} h_j + \tilde{b}_k\Big)$
+- **Hidden layer**: transform the linear perceptron model into a non-linear model.
+  - number of model parameters. In NN, model parameters are also called **weights.**
+  - **Hyperparameters** parameters related to the architecture. Examples: number of hidden nodes.
+
+**Loss function**: The most common selection is the mean squared error (MSE). 
+
+**Solver**: Must be solved numerically. (see below)
+
+If the number of nodes is sufficiently large, we can achieve universal approximation even with only one hidden layer!
+
+### Optimizing a non-quadratic loss function
+
+Now the loss function $J(\textbf{w})$ can have many local minima in the parameter space. An analytical solution is no longer possible.
+
+#### Newton's method
+
+This method involves the calculation of the Hessian matrix $\textbf{H}_0$, which contains all the second order derivatives of $J$ assessed at $\textbf{w}_0$. One iteration can be expressed as
+
+$\textbf{w}_{k+1} = \textbf{w}_k - \textbf{H}_k^{-1} \nabla J(\textbf{w}_k)$
+
+#### Gradient descent method 
+
+This method replaces the Hessian matrix $\textbf{H}_0$ with a fixed or a flexible step size $\eta$, which is typically called a **learning rate**:
+
+$\textbf{w}_{k+1} = \textbf{w}_k - \eta \nabla J(\textbf{w}_k)$
+
+### Optimizing an MLP NN
+
+The structure of an MLP NN makes the calculation of $\nabla J(\textbf{w})$ difficult, but the good thing is that we have the *back-propagation* algorithm, which just needs one data point to derive $\nabla J(\textbf{w})$ based on model errors ($\hat{y} - y$). The term "back-propagation" means it starts by finding the gradient for the weights in the output layer, then uses those numbers to find the gradient for the weights in the previous hidden layer (i.e., propagation), and so on.
+
+#### Back-Propagation
+
+From the textbook: "Nowadays, the term ‘back-propagation’ is used somewhat ambiguously."
+- It could mean the original back-propagation algorithm (with inefficient gradient descent)
+- or, more likely, it could mean using only the first part involving the backward error propagation to compute the $\nabla J(\textbf{w})$.
+
+As it is based on the gradient descent method, the back-propagation needs a pre-defined **learning rate** to initialize.
+
+For the weights connecting the hidden and output layers:
+
+$\Delta \tilde{w}_{kj}=-\eta\frac{\partial J}{\partial \tilde{w}_{kj}} = \eta(y_k-\hat{y}_k)g'(\tilde{s}_k)h_j$
+
+For the weights connecting the input and hidden layers:
+
+$\Delta w_{ji}=-\eta\frac{\partial J}{\partial w_{ji}} = \eta \sum_k (y_k-\hat{y}_k)g'(\tilde{s}_k) \tilde{w}_{kj}f'(s_j)x_i$
+
+#### Using Back-Propagation
+
+Since you only need **one data point** to calculate $\nabla J(\textbf{w})$, there are different styles to apply the back-propagation algorithm:
+
+- Sequential training: Updating weights using one data point
+- Batch training: Updating weights using all data points (using average $\nabla J(\textbf{w})$)
+
+**Epoch**: The time when all data points are visited (used) once.
+
+And this procedure can be performed as many times as you want until arbitrary stopping criteria. For example:
+
+- When the model error (e.g., RMSE) starts to stabilize or even increase
+- When the prediction error of the validation data set starts to stabilize or even increase (**early stopping**)
+
+
+### General issues for non-linear fitting
+
+<!-- - Curse of dimensionality? -->
+<p>Do you have ideas for addressing these challenges?</p>
+<ul class="simple">
+<li><p>The optimization process falls into a local minimum depending on the initial weight selections.</p></li>
+<li><p>Lots of weights result in potential overfitting.</p></li>
+<li><p>Lots of hyperparameters to tune. (What are they?)</p></li>
+<li><p>When an MLP with a single hidden layer grows, it adds lots of nodes, and the processing time increases like crazy due to the curse of dimensionality.</p></li>
+</ul>
+<!-- How to address these challenges? Ensembles? Regularizations? -->
+<p>Regularizations? Dropout? …</p>
+<section id="extreme-learning-machine-elm">
+<h3>Extreme Learning Machine (ELM)<a class="headerlink" href="#extreme-learning-machine-elm" title="Link to this heading">#</a></h3>
+<p>This is one proposed solution to the challenges above. The idea of using ensembles transforms a non-linear problem back to a linear problem.</p>
+<p><strong>Architecture</strong>: Same as MLP; however, two rules are used to transform it into a linear problem.</p>
+<ol class="arabic simple">
+<li><p>The weights applied to the input layer are randomly assigned for each ensemble member.</p></li>
+<li><p>The activation function of the hidden layer is an identical function.</p></li>
+</ol>
+<p><strong>Loss function</strong>: Same as MLP.</p>
+<p><strong>Solver</strong>: the problem is analytically solved for each ensemble member.</p>
+<!-- How to determine the number of hidden layer nodes $L$? -->
+<!-- ### Radial Basis Functions (RBF)
+
+This is another way to reduce the non-linearity of NN into a linear problem.
+
+Why is it called "Radial Basis?" We'll revisit this during the kernel method section. -->
+</section>
+<section id="tuning-hyperparameters-model-validation">
+<h3>Tuning hyperparameters (Model validation)<a class="headerlink" href="#tuning-hyperparameters-model-validation" title="Link to this heading">#</a></h3>
+<p>Multiple ways to assign validation data:</p>
+<ul class="simple">
+<li><p>Find an independent validation data set. Or reserve some data from training for later use for validation.</p></li>
+<li><p>Cross-validation: using all training data to validate the model by segmenting the data and repeated validations.</p></li>
+<li><p>Double cross-validation: an advanced cross-validation scheme to avoid issues caused by serial correlation of the input data.</p></li>
+</ul>
+<p>Multiple ways to search within the hyperparameter space:</p>
+<ul class="simple">
+<li><p>Grid search</p></li>
+<li><p>Random search</p></li>
+</ul>
+</section>
+<section id="ensemble-technique">
+<h3>Ensemble technique<a class="headerlink" href="#ensemble-technique" title="Link to this heading">#</a></h3>
+<p>The ensemble technique helps reduce the variance error without sacrificing bias error (Section 8.3).</p>
+<ul class="simple">
+<li><p>Bagging: bootstrapping; creating different (sub-)input data sets</p></li>
+<li><p>Stacking: combining totally different non-linear models.  –&gt;</p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -428,6 +528,15 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="week6-8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Neural Networks: How can you trust complex models that seem like black boxes?</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -445,15 +554,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-outline">Lecture outline</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-and-regression-trees-cart">Classification and Regression Trees (CART)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randon-forest">Randon Forest</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">Boosting</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-boosting">Gradient boosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-learning-machine-elm">Extreme Learning Machine (ELM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-hyperparameters-model-validation">Tuning hyperparameters (Model validation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-technique">Ensemble technique</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-discussion-demo-topics">Group discussion &amp; demo topics</a></li>
 </ul>
   </nav></div>
 
