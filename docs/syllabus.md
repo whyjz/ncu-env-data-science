@@ -66,43 +66,38 @@ Readings and assignments are due **before the class starts**.
   - 8.1--8.8
   - 
 * - 9 (4/21)
-  - Principal Components (I)
+  - <font color="red">Neural Networks (IV)</font>
   - 9.1
   - Problem set #2  
 * - 10 (4/28)
-  - Principal Components (II)
+  - <font color="red">Principal Components (I)</font>
   - 9.2, 9.3
   - 
 * - 11 (5/5)
-  - Kernel Methods (I)
-  - TBD
+  - <font color="red">Principal Components (II)</font>
+  - 2.14, 2.15, 12.1--12.3, 13.1--13.3
   - Problem set #3
 * - 12 (5/12)
-  - Kernel Methods (II)
-  - TBD
+  - <font color="red">Kernel Methods (I)</font>
+  - 13.4--13.7
   - 
 * - 13 (5/19)
-  - Ensemble Methods (I)
-  - TBD
+  - <font color="red">Kernel Methods (II)</font>
+  - 10.6, 13.8, 13.9
   - Problem set #4
 * - 14 (5/26)
-  - *NO CLASS*
-  -  
+  - <font color="red">Ensemble Methods (I)</font>
+  - 2.17, 14.1, 14.2
   - Term project paper
 * - 15 (6/2)
   - Ensemble Methods (II)
-  - TBD
+  - 14.3, 16.8, 16.9, 17.2
   - 
 * - 16 (6/9)
   - Term project presentation | Post-course Quiz
   -
   - Problem set #5 
 ```
-
-<!-- [2.14--2.16 12.1--12.3, 13.1--13.5]
-[13.6--13.8]
-[2.17, 14.1, 14.2]
-[14.3, 16.8, 16.9, 17.2] -->
 
 <!-- 15.1--15.3 -->
 <!-- Outlook: Physics-informed learning models -->
