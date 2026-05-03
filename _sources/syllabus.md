@@ -76,23 +76,23 @@ Readings and assignments are due **before the class starts**.
 * - 11 (5/5)
   - <font color="red">Principal Components (II)</font>
   - 2.14, 2.15, 12.1--12.3, 13.1--13.3
-  - Problem set #3
+  - 
 * - 12 (5/12)
   - <font color="red">Kernel Methods (I)</font>
   - 13.4--13.7
-  - 
+  - <font color="red">Problem set #3</font>
 * - 13 (5/19)
   - <font color="red">Kernel Methods (II)</font>
   - 10.6, 13.8, 13.9
-  - Problem set #4
+  - 
 * - 14 (5/26)
   - <font color="red">Ensemble Methods (I)</font>
   - 2.17, 14.1, 14.2
-  - Term project paper
+  - <font color="red">Problem set #4</font>
 * - 15 (6/2)
   - Ensemble Methods (II)
   - 14.3, 16.8, 16.9, 17.2
-  - 
+  - <font color="red">Term project paper</font>
 * - 16 (6/9)
   - Term project presentation | Post-course Quiz
   -

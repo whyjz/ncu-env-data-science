@@ -27,13 +27,13 @@
 1. Complete Exercise 9.4 in Hsieh's book. Please visualize the data and/or results in some ways. (Source data: `Exer_9.4.csv`)
 2. Complete Exercise 9.5 in Hsieh's book. Please visualize the data and/or results in some ways. (Source data: `SFBay_no_NaN.csv`)
 
-<!--## Problem set #4
+## Problem set #4
 
 1. Complete Exercise 12.1 in Hsieh's book. For subquestion (a), visualize the results to reproduce Figure 12.1(b). Make sure to label/mark correct and incorrect predictions. (Source data: `forest_testing.csv` & `forest_testing.csv`)
 2. Following the first question, use the support vector machine to classify the forest types in the given dataset. Feel free to choose one-versus-the-rest or one-versus-one approach (and specify your choice). Train using the first two predictors and compare the results with the linear discriminant analysis by visualizing them similarly.
 3. Generate a synthetic signal with added noise $y = \sin x + 0.5 \times \mathcal{N}(0, 1)$ and collect 40 data points that are distributed within the range $x = [0, 4\pi]$. Now use (a) ridge regression, (b) kernel ridge regression, and (c) Gaussian process regression to model the data and give the prediction in the range $x = [0, 8\pi]$ with visualization. Describe and justify your kernel selection and hyperparameter tuning process whenever necessary. Compare the results from three regression methods.
 
-## Problem set #5
+<!--## Problem set #5
 
 1. Complete Exercise 12.5 in Hsieh's book. Please use the Linear Discriminant Analysis (LDA) model. You'll need to determine some details about how to process the data. Specify them. (Source data: `SydneyAirport_weather.csv`)
 2. Complete Exercise 14.3 in Hsieh's book. Please use the same preprocessing workflow as in the previous question for the data. Challenge yourself and see if you can build a better model than LDA! (Source data: `SydneyAirport_weather.csv`)
