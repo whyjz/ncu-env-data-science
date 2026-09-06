@@ -14,9 +14,10 @@ Whyjay Zheng (鄭懷傑), whyjz@csrsr.ncu.edu.tw, Tuesday 10:00 am -- 12:30 pm a
 
 ## Prerequisites 
 
-Before taking this course, you should already have the necessary knowledge about statistics and computer programming. Check out [this web page](https://scikit-learn.org/1.1/tutorial/statistical_inference/supervised_learning.html) and see if you can understand most of the ideas and steps presented here within a reasonable reading time. 
+Before taking this course, you should already have the necessary knowledge about statistics and computer programming. Here are two ways to do a self check-out: 
 
-If more than two questions in the Pre-course Quiz are challenging, I suggest taking introductory statistics or programming first.
+- Go to [this web page](https://scikit-learn.org/1.1/tutorial/statistical_inference/supervised_learning.html) and see if you can understand most of the ideas and steps presented here within a reasonable reading time. 
+- If more than two questions in the Pre-course Quiz are challenging, I suggest taking introductory statistics or programming first.
 
 ## Textbook
 
@@ -184,7 +185,7 @@ This tentative schedule is subject to change depending on our progress and parti
 ## Course components
 
 ### Readings
-The assigned readings are from Hsieh's book (see Course Calendar for the section numbers). We will have you discuss your reflection and understanding of the content during the class.
+The assigned readings are from Hsieh's book (see Course Calendar for the section numbers). **This must be done before the start of the class**. We will have you discuss your reflection and understanding of the content as a group during the first fourty minutes of the class.
 
 ### During the class
 There are two segments during the class time:
@@ -193,7 +194,7 @@ There are two segments during the class time:
 2. Lecture (10:45--12:20; with a break of 10 minutes in the middle): I (Whyjay) will review today's topics. We will also use this time to discuss your homework and demonstrate data-processing skills.
 
 ### Homework assignments
-There will be five problem sets throughout the semester. Each consists of 3--5 questions, most of which (as well as the source data sets) come from Hsieh's textbook. You must work on them individually (no collaboration or plagiarism). Assignments are **due before class starts**; see course calendar for due dates. Electronic submission through ee-class is recommended, but other forms are also acceptable. Please make sure I get your submission before the deadline to avoid a potential late penalty if you don't use ee-class.
+There will be five problem sets throughout the semester. Each consists of 3--5 questions, most of which (as well as the source data sets) come from Hsieh's textbook. You must work on them individually (**no collaboration or plagiarism**). Assignments are **due before class starts**; see course calendar for due dates. Electronic submission through ee-class is recommended, but other forms are also acceptable. Please make sure I get your submission before the deadline to avoid a potential late penalty if you don't use ee-class.
 
 ### Term project
 The group-based term project is the final checkpoint for what you have learned in this course. Each project team consists of no more than four people. There are three project milestones throughout the semester: 
@@ -212,9 +213,9 @@ The project proposal should be half to one page long and summarize your intended
 
 Your final group write-up must follow the structure of an academic essay (Introduction, Methods, Results, Discussion, References, etc.) and have an abstract of less than 100 words. The work should be visible online before the due date listed on the calendar (before the class starts) and remain unchanged for a week for grading. After one week, you can decide whether to keep the webpage online.
 
-There will be a template for you to develop your own writing.
+[A template is available here](https://whyjz.github.io/ncu-env-data-science/project.html) for you to develop your own writing. This page contains a link to the source Notebook file.
 
-<!-- I have made a [template](https://github.com/whyjz/ncu-env-data-science-template) for you to automatically publish your Jupyer notebook (or plain markdown files) using GitHub Pages. You can also find the deployed [HTML here](https://whyjz.github.io/ncu-env-data-science-template/project.html).  -->
+<!-- I have made a [template](https://github.com/whyjz/ncu-env-data-science-template).  -->
 
 #### Oral presentation
 
@@ -233,7 +234,6 @@ I will evaluate your submissions and post your grades using Ee-class. The grade 
 The sum of these grading items is 102%; however, you will receive 100% if your total is over 100%. 
  
 
-(late-work-policy)=
 ### Late work policy
 - Write-ups: A 10% penalty will be applied for each day past the deadline. 
 - Term project presentation: If you are absent on the oral presentation date, we accept video recordings to be shared within the class as a make-up. However, a 20% penalty will be applied for each day past the presentation date. 
@@ -245,16 +245,13 @@ The sum of these grading items is 102%; however, you will receive 100% if your t
 ### Diversity, Equity, and Inclusion (DEI)
 
 - We will not tolerate any forms of discrimination and harassment during the class. 
-
 - We encourage conversations about inequality whenever you sense that. This includes, but is not limited to, the [hidden curriculum](https://en.wikipedia.org/wiki/Hidden_curriculum) and [microaggression](https://en.wikipedia.org/wiki/Microaggression). 
-
 - Be respectful about different ideas and perspectives during discussion, and be mindful about your choice of words. 
 
 ### Attribution of work
 
 - Please be careful about using copyrighted material in any assignments, and **make sure you have permission/license with proper attribution** whenever you use it.
-
-- Again, do not work with other students on the homework assignments. They must be your sole work.
+- Again, do not work with other students on the homework assignments. **They must be your sole work.**
 
 ### Study time
 Since this is a 3-credit course, I expect you to have ~6 hours of study time each week in addition to class time to earn an adequate grade. If you spend much less or much more than that on readings, assignments, and the project, please let me know.

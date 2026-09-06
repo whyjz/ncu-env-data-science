@@ -9,7 +9,7 @@ parts:
     
   - caption: Outlines
     chapters:
-    - file: outlines/week1
+    - file: outlines/Lec-Warmup
     # - file: outlines/week2
     - file: outlines/week3-4
     - file: outlines/week6-8
